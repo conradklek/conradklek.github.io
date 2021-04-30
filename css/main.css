@@ -1,18 +1,4 @@
 @import url("https://use.typekit.net/esk0uzl.css");
-@font-face {
-  font-family: 'ikon-bold';
-  src: url('font/bmikon-thickened-webfont.woff2') format('woff2'),
-       url('font/bmikon-thickened-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'ikon';
-  src: url('font/bmikon-regular-webfont.woff2') format('woff2'),
-       url('font/bmikon-regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 :root{
   font-size: 10px;
   line-height: 1;
@@ -30,12 +16,11 @@ body{
   position: fixed;
   top: 1.5rem;
   left: 1.5rem;
-  font-size: 2.5rem;
-  letter-spacing: 2px;
-  font-family: "ikon-bold";
+  font-size: 2rem;
 }
 #logo h1{
   margin: 0;
+  font-weight: 600;
 }
 #wrap{
   width: 1024px;
@@ -236,16 +221,12 @@ textarea, input{
   line-height: 1.5;
 }
 h3{
-  font-family: "ikon-bold";
   font-size: 4rem;
-  font-weight: normal;
-  text-transform: uppercase;
+  font-weight: 600;
   margin: 1.5rem 0 1.5rem 0;
-  letter-spacing: 1px;
 }
 h3 small{
-  font-family: acumin-pro, sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 2rem;
 }
 .tags{
