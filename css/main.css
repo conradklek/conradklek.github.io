@@ -59,7 +59,6 @@ main section{
   overflow: hidden;
   margin: 5px;
   cursor: pointer;
-  display: flex;
 }
 .thumb div img{
   width: 100%;
@@ -116,6 +115,7 @@ section .frame{
   width: 100%;
   height: auto;
   overflow: hidden;
+  margin: 2rem 0 2rem 0;
 }
 .frame img{
   width: 100%;
