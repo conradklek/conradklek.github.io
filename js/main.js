@@ -43,12 +43,12 @@ var isInViewport = function (elem) {
   );
 };
 window.addEventListener("scroll", function(){
-  let images = document.querySelectorAll(".img");
-  images.forEach(image =>{
-    if (isInViewport(image)){
-      image.classList = "img isVisible"
+  let objects = document.querySelectorAll("*");
+  objects.forEach(object =>{
+    if (isInViewport(object)){
+      object.classList.add("isVisible")
     } else {
-      image.classList = "img"
+      object.classList.remove("isVisible")
     }
   })
 });

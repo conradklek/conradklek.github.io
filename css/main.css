@@ -1,4 +1,18 @@
 @import url("https://use.typekit.net/esk0uzl.css");
+@font-face {
+  font-family: 'ikon-bold';
+  src: url('font/bmikon-thickened-webfont.woff2') format('woff2'),
+       url('font/bmikon-thickened-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ikon';
+  src: url('font/bmikon-regular-webfont.woff2') format('woff2'),
+       url('font/bmikon-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 :root{
   font-size: 10px;
   line-height: 1;
@@ -9,6 +23,19 @@ body{
   color: var(--light);
   font-family: acumin-pro, sans-serif;
   font-style: normal;
+}
+#logo{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-family: "ikon-bold";
+}
+#logo h1{
+  margin: 0;
 }
 #wrap{
   width: 1024px;
@@ -121,73 +148,10 @@ section .frame{
   width: 100%;
   height: auto;
 }
-#logo, #logo::before, #logo::after{
-  width: 40px;
-  height: 40px;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  border-radius: 50%;
-  border: 2px solid var(--light);
-  display: block;
-  content: "";
-  cursor: pointer;
-  z-index: 10;
-}
-#logo{
-  border: 0;
-  transition: opacity 400ms;
-}
-#logo::before{
-  left: 40px;
-  z-index: 2;
-}
-#logo h1{
-  width: auto;
-  height: 40px;
-  line-height: 35px;
-  position: relative;
-  margin: 0 0 0 65px;
-  white-space: nowrap;
-  font-size: 3rem;
-  font-weight: 600;
-  letter-spacing: -.16px;
-}
-#logo h1 small{
-  font-weight: 500;
-  letter-spacing: .32px;
-}
-#logo:hover::before{
-  left: 20px;
-}
-#logo:hover::after{
-  left: 40px;
-  z-index: 3;
-}
-#logo h1::before{
-  width: 40px;
-  height: 40px;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  border-radius: 50%;
-  border: 2px solid var(--light);
-  display: block;
-  content: "";
-  cursor: pointer;
-  z-index: 4;
-  pointer-events: none;
-}
-#logo:hover h1::before{
-  border: 2px solid var(--light);
-  z-index: 3;
-}
-body.side #logo{
-  opacity: 0;
-}
 h2{
-  font-size: 2.5rem;
-  font-weight: 600;
+  letter-spacing: .5px;
+  font-size: 2rem;
+  font-weight: 500;
   margin: 0 0 2.5rem 0;
   padding: 0 0 1rem 0;
   border-bottom: 2px solid var(--light);
@@ -268,28 +232,16 @@ textarea, input{
   font-size: 1.4rem;
   line-height: 1.5;
 }
-.caret{
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  top: 1rem;
-  right: 0;
-  line-height: 3rem;
-  font-size: 2.5rem;
-  text-align: center;
-  transition: transform 200ms;
-  cursor: pointer;
-}
-section.active .caret{
-  transform: rotate(90DEG);
-}
 h3{
-  font-size: 3rem;
-  font-weight: 600;
+  font-family: "ikon-bold";
+  font-size: 5rem;
+  font-weight: normal;
   margin: 1.5rem 0 1.5rem 0;
+  letter-spacing: 1px;
 }
 h3 small{
-  font-weight: 600;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
   font-size: 2rem;
 }
 .tags{
@@ -429,8 +381,5 @@ body.side #side{
 @media only screen and (max-width: 600px) {
   #wrap{
     width: 100%;
-  }
-  #logo h1 small{
-    display: none;
   }
 }
