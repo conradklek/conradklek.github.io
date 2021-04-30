@@ -42,8 +42,16 @@ var isInViewport = function (elem) {
       bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 };
+let objects = document.querySelectorAll("*");
+objects.forEach(object =>{
+  if (isInViewport(object)){
+    object.classList.add("isVisible")
+  } else {
+    object.classList.remove("isVisible")
+  }
+});
 window.addEventListener("scroll", function(){
-  let objects = document.querySelectorAll("*");
+  objects = document.querySelectorAll("*");
   objects.forEach(object =>{
     if (isInViewport(object)){
       object.classList.add("isVisible")
