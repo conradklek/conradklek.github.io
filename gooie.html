@@ -24,44 +24,10 @@
 </style>
 </head>
 
-<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true">
+<body class="with-custom-webkit-scrollbars dark-mode with-custom-css-scrollbars" data-dm-shortcut-enabled="true">
 <!-- start okay to delete -->
   <textarea id="soul" class="shadow shadow-lg form-control alt-dm text-monospace hidden-lm text-white font-weight-semi-bold" spellcheck="false" autocomplete="off" autocapitalize="none">
 // This is your Soul. She speaks Javascript
-
-bark([
-    ":root", [
-        "--navbar-height: 60px",
-    ],
-    "#soul", [
-        "width: 100vw",
-        "height: 50vh",
-        "position: fixed",
-        "top: calc(50vh - (var(--navbar-height) * 2))",
-        "left: 0",
-        "resize: none",
-        "white-space: nowrap",
-        "z-index: 9001",
-        "transition: 400ms",
-        "white-space: pre",
-        "backdrop-filter: blur(5px) brightness(50%)",
-        "-webkit-backdrop-filter: blur(5px) brightness(50%)",
-        "font-size: 1.2rem"
-    ],
-    "#soul.hide", [
-        "left: -100vw",
-        "opacity: 0"
-    ],
-    "div.content-wrapper", [
-        "padding-bottom: var(--navbar-height)"
-    ],
-    "nav.navbar.navbar-fixed-bottom", [
-        "height: calc(var(--navbar-height) * 2)"
-    ],
-    "nav.navbar.navbar-fixed-bottom .btn-group", [
-        "margin-bottom: var(--navbar-height)"
-    ]
-]);
 
 function jump(page){
     let navbar = ["div.navbar-content", ["button.btn.btn-primary.active.hidden-lm~type::button~onclick::hide()~", ["i.fas.fa-ghost~aria-hidden::true~"]], ["button.btn.btn-primary.hidden-dm~onclick::side()~type::button~", ["i.fas.fa-bars~aria-hidden::true~"]], "a.navbar-brand.ml-10~href::https://github.com/GooieJS/GooieJS.github.io~target::_blank~", ["div.font-weight-semi-bold.font-size-24{Gooie.io}"], "button.btn.ml-auto.hidden-dm~onclick::dark()~type::button~", ["i.fas.fa-moon"], "button.btn.btn-danger.active.ml-auto.hidden-lm~onclick::dark()~type::button~", ["i.fas.fa-fire"]]
@@ -403,6 +369,41 @@ function jump(page){
     document.querySelector(".page-wrapper").setAttribute("data-sidebar-hidden", "hidden")
 }
 jump(1);
+
+bark([
+    ":root", [
+        "--navbar-height: 60px",
+    ],
+    "#soul", [
+        "width: 100vw",
+        "height: 50vh",
+        "position: fixed",
+        "top: calc(50vh - (var(--navbar-height) * 2))",
+        "left: 0",
+        "resize: none",
+        "white-space: nowrap",
+        "z-index: 9001",
+        "transition: 400ms",
+        "white-space: pre",
+        "backdrop-filter: blur(5px) brightness(50%)",
+        "-webkit-backdrop-filter: blur(5px) brightness(50%)",
+        "font-size: 1.2rem"
+    ],
+    "#soul.hide", [
+        "left: -100vw",
+        "opacity: 0"
+    ],
+    "div.content-wrapper", [
+        "padding-bottom: var(--navbar-height)"
+    ],
+    "nav.navbar.navbar-fixed-bottom", [
+        "height: calc(var(--navbar-height) * 2)"
+    ],
+    "nav.navbar.navbar-fixed-bottom .btn-group", [
+        "margin-bottom: var(--navbar-height)"
+    ]
+]);
+
 function dark(){
     halfmoon.toggleDarkMode();
 }
