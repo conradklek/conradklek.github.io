@@ -132,6 +132,13 @@ section .frame{
 .frame img{
   width: 100%;
   height: auto;
+  transform: scale(.925) translateY(10rem);
+  transition: transform 500ms 200ms, opacity 500ms 0ms;
+  opacity: 0;
+}
+.frame img.isVisible{
+  opacity: 1;
+  transform: scale(1) translateY(0);
 }
 h2{
   font-size: 2.5rem;
