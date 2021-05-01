@@ -1,3 +1,6 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js');
+}
 let menu = document.getElementById("menu");
 menu.addEventListener("click", ()=>{side()});
 function side(){

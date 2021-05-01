@@ -1,12 +1,15 @@
 {
-  "short_name": "",
-  "name": "",
+  "short_name": "Coco",
+  "name": "Conrad Klek",
   "icons": [{
     "src": "icon.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
-  "start_url": "/?utm_source=homescreen",
-  "background_color": "#fafafa",
-  "theme_color": "#fafafa"
+  "start_url": "/",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/"
 }
