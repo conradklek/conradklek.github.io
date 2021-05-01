@@ -9,6 +9,7 @@ body{
   color: var(--light);
   font-family: acumin-pro, sans-serif;
   font-style: normal;
+  overflow: scroll;
 }
 #logo{
   display: flex;
