@@ -12,10 +12,51 @@
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
+  <style>
+    :root{
+      font-size: 10px;
+    }
+    *, *::before, *::after{ box-sizing: border-box }
+    body{
+      font-family: acumin-pro;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      background: black;
+      color: white;
+    }
+    #soul{
+      position: fixed;
+      top: 8rem;
+      left: 1rem;
+      min-width: 300px;
+      min-height: 180px;
+      padding: 1rem;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+    }
+    #logo{
+      font-family: "IBM Plex Sans";
+      font-size: 3rem;
+      line-height: 3rem;
+      font-weight: 600;
+      margin-right: 1rem;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+    }
+    #file{
+      font-size: 1.2rem;
+      position: fixed;
+      top: 5rem;
+      left: 1rem;
+      border-radius: .5rem;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+    }
+  </style>
   <meta name="theme-color" content="#fafafa">
 
 </head>
@@ -23,10 +64,49 @@
 <body>
   <label for="file" id="logo">GooieJS</label>
   <input type="file" id="file" accept=".txt, .js">
+  <textarea id="soul"></textarea>
 
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+<script>
+
+const soul = document.getElementById("soul");
+soul.addEventListener("keyup", ()=>{
+    document.getElementById("script").remove();
+    script = document.createElement("script");
+    document.body.appendChild(script);
+    script.id = "script";
+    script.textContent = soul.value;
+});
+
+document.getElementById('file')
+  .addEventListener('change', getFile)
+
+function getFile(event) {
+	const input = event.target
+  if ('files' in input && input.files.length > 0) {
+	  placeFileContent(
+      document.getElementById('soul'),
+      input.files[0])
+  }
+  setTimeout(() => {
+      document.getElementById('script').textContent = document.getElementById('soul').value;
+  }, 500);
+}
+
+function placeFileContent(target, file) {
+	readFileContent(file).then(content => {
+  	target.value = content
+  }).catch(error => console.log(error))
+}
+
+function readFileContent(file) {
+	const reader = new FileReader()
+  return new Promise((resolve, reject) => {
+    reader.onload = event => resolve(event.target.result)
+    reader.onerror = error => reject(error)
+    reader.readAsText(file)
+  })
+}
+</script>
   <script id="script"></script>
 </body>
 
