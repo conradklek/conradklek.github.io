@@ -1,0 +1,46 @@
+@import url("https://use.typekit.net/esk0uzl.css");
+
+:root{font-size: 10px; --red100: #2d0709;--red90: #520408;--red80: #750e13;--red70: #a2191f;--red60: #da1e28;--red50: #fa4d56;--red40: #ff8389;--red30: #ffb3b8;--red20: #ffd7d9;--red10: #fff1f1;--magenta100: #2a0a18;--magenta90: #510224;--magenta80: #740937;--magenta70: #9f1853;--magenta60: #d02670;--magenta50: #ee5396;--magenta40: #ff8eb6;--magenta30: #ffafd2;--magenta20: #ffd6e8;--magenta10: #fff0f7;--purple100: #1c0f30;--purple90: #31135e;--purple80: #491d8b;--purple70: #6929c4;--purple60: #8a3ffc;--purple50: #a56eff;--purple40: #be95ff;--purple30: #d4bbff;--purple20: #e8daff;--purple10: #f6f2ff;--blue100: #001141;--blue90: #001d6c;--blue80: #002d9c;--blue70: #0042cb;--blue60: #0f62fe;--blue50: #4589ff;--blue40: #78a9ff;--blue30: #a6c8ff;--blue20: #d0e2ff;--blue10: #edf5ff;--cyan100: #061727;--cyan90: #012749;--cyan80: #003a6d;--cyan70: #00539a;--cyan60: #0072c3;--cyan50: #1192e8;--cyan40: #33b1ff;--cyan30: #82cfff;--cyan20: #bae6ff;--cyan10: #e5f6ff;--teal100: #081a1c;--teal90: #022b30;--teal80: #004144;--teal70: #005d5d;--teal60: #007d79;--teal50: #009d9a;--teal40: #08bdba;--teal30: #3ddbd9;--teal20: #9ef0f0;--teal10: #d9fbfb;--green100: #071908;--green90: #022d0d;--green80: #044317;--green70: #0e6027;--green60: #198038;--green50: #24a148;--green40: #42be65;--green30: #6fdc8c;--green20: #a7f0ba;--green10: #defbe6;--cool100: #121619;--cool90: #21272a;--cool80: #343a3f;--cool70: #4d5358;--cool60: #697077;--cool50: #878d96;--cool40: #a2a9b0;--cool30: #c1c7cd;--cool20: #dde1e6;--cool10: #f2f4f8;--gray100: #161616;--gray90: #262626;--gray80: #393939;--gray70: #525252;--gray60: #6f6f6f;--gray50: #8d8d8d;--gray40: #a8a8a8;--gray30: #c6c6c6;--gray20: #e0e0e0;--gray10: #f4f4f4;--warm100: #171414;--warm90: #272525;--warm80: #3c3838;--warm70: #565151;--warm60: #726e6e;--warm50: #8f8b8b;--warm40: #ada8a8;--warm30: #cac5c4;--warm20: #e5e0df;--warm10: #f7f3f2; }
+
+*, *::before, *::after{ box-sizing: border-box }
+body{
+  font-family: acumin-pro;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: black;
+  color: white;
+}
+#code{
+  width: 100vw;
+  height: 100vh;
+  resize: none;
+  padding: 2rem;
+  font-size: 1.2rem;
+  letter-spacing: .32px;
+  font-weight: 500;
+  font-family: "IBM Plex Mono";
+  background: var(--cool100);
+  color: white;
+  border: 0;
+  outline: 0;
+}
+#logo{
+  font-family: "IBM Plex Sans";
+  font-size: 3rem;
+  font-weight: 600;
+  margin-right: 1rem;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+#file{
+  font-size: 1.2rem;
+}
