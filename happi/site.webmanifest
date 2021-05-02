@@ -1,15 +1,15 @@
 {
-  "short_name": "Gooie",
-  "name": "GooieJS",
+  "short_name": "Happi",
+  "name": "HappiJS",
   "icons": [{
     "src": "icon.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
-  "start_url": "/gooie/index.html",
+  "start_url": "/happi/index.html",
   "background_color": "#000000",
   "theme_color": "#000000",
   "display": "fullscreen",
   "orientation": "portrait",
-  "scope": "/gooie/index.html"
+  "scope": "/happi/index.html"
 }

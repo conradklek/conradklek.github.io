@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>GooieJS</title>
-  <meta name="description" content="Graphic Object Oriented Interface Enviornment">
+  <title>Happi</title>
+  <meta name="description" content="Javascript Progressive Web App Portal">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="manifest" href="site.webmanifest">
@@ -23,84 +23,65 @@
       font-family: "IBM Plex Sans";
       background: black;
       color: white;
-      display: flex;
-      flex-direction: column;
-      position: relative;
     }
     #logo{
-      width: auto;
-      height: 10rem;
-      line-height: 10rem;
-      padding: 0 0 0 2rem;
+      display: inline-block;
+      line-height: 4rem;
       font-size: 4rem;
       font-weight: 600;
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-    #soul{
-      display: block;
-      width: 100vw;
-      height: 100vh;
-      resize: none;
-      padding: 10rem 2rem 2rem 2rem;
-      background: transparent;
-      color: white;
-      border: 0;
-      outline: 0;
-      font-family: "IBM Plex Mono";
-      font-weight: 600;
-      white-space: pre;
-      overflow: auto;
+      margin: 2rem;
     }
     label[for="file"]{
-      width: 300px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 3;
-      padding: 4.5rem 4rem 4rem 18rem;
+      position: relative;
+      display: inline-block;
+      width: 12rem;
+      height: 2.5rem;
       cursor: pointer;
     }
-    #hide{
-      width: 9rem;
-      height: 2.25rem;
+    label[for="file"] span, label[for="file"] #file{
       position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    label[for="file"] span{
       z-index: 2;
-      border-radius: 2px;
-      border-bottom: 2px solid white;
-      text-align: center;
-      line-height: 2rem;
+      line-height: 1;
+      font-size: 1.8rem;
       font-weight: 500;
-      font-size: 1.5rem;
+      text-align: center;
+      color: white;
+      pointer-events: none;
+      border-radius: .4rem;
+      border-bottom: .2rem solid white;
       white-space: nowrap;
     }
-    #file{
-      width: 9rem;
-      border: 1px solid cyan;
-      position: absolute;
-      left: 18rem;
+    label[for="file"] #file{
+      z-index: 3;
       opacity: 0;
+      cursor: pointer;
+    }
+    #soul{
+      display: none;
     }
   </style>
 
 </head>
 
 <body>
-  <label for="file"><span id="hide">Upload a file</span><input id="file" type="file" name="file" /></label>
-  <label for="soul"><span id="logo">GooieJS</span><textarea id="soul"></textarea></label>
-  <script>
+  <h1 id="logo">HappiJS</h1>
+  <label for="file">
+    <span>Choose a file</span>
+    <input id="file" type="file" name="file" />
+  </label>
+  <label for="soul"><textarea id="soul"></textarea></label>
+
+<script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');
   }
-  const soul = document.getElementById("soul");
-  soul.addEventListener("keyup", ()=>{
-      document.getElementById("script").remove();
-      script = document.createElement("script");
-      document.body.appendChild(script);
-      script.id = "script";
-      script.textContent = soul.value;
-  });
 
   document.getElementById('file')
     .addEventListener('change', getFile)
