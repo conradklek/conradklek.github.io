@@ -21,6 +21,7 @@
       margin: 0;
       padding: 0;
       background-color: var(--blue70);
+      background: linear-gradient(145deg, white, var(--cool10));
       color: white;
       overflow: hidden;
       min-height: 100vh;
@@ -36,12 +37,11 @@
       border-radius: .75rem;
       font-size: 2rem;
       font-weight: 500;
+      margin: 1rem;
       cursor: pointer;
+      line-height: 1;
       color: white;
       text-shadow: 0 3px rgba(0,0,200,.125);
-      line-height: 1;
-    }
-    button{
       background: linear-gradient(145deg, var(--blue60), var(--blue70));
       box-shadow:
       2px 4px 6px rgba(0,0,255,.1),
@@ -54,7 +54,21 @@
       0 20px 25px rgba(0, 0, 0, 0.09);
       border-bottom: 3px solid rgba(20,10,150,.75);
       border-top: 1px solid rgba(0,100,255,1);
-      margin: .5rem;
+
+      color: var(--cool90);
+      text-shadow: 1px 2px rgba(0,0,0,.05), -2px -2px white;
+      background: linear-gradient(145deg, white, var(--cool10));
+      box-shadow:
+      2px 4px 6px rgba(0,0,0,.1),
+      -2px -2px 6px rgba(255,255,255,1),
+      0 0px 0px rgba(0, 0, 0, 0.03),
+      0 1px 1px rgba(0, 0, 0, 0.04),
+      0 2px 2px rgba(0, 0, 0, 0.04),
+      0 5px 5px rgba(0, 0, 0, 0.05),
+      0 10px 15px rgba(0, 0, 0, 0.06),
+      0 20px 25px rgba(0, 0, 0, 0.08);
+      border-bottom: 3px solid var(--cool20);
+      border-top: 1px solid rgba(255,255,255,1);
     }
     button:active{
       background: var(--blue70);
@@ -96,10 +110,11 @@
       content: "HappiJS";
       display: block;
       position: absolute;
-      top: -5rem;
+      top: -6rem;
       text-align: center;
-      border-bottom: .5rem solid var(--blue60);
-      text-shadow: 0px 2px var(--blue70), 4px 2px var(--blue70), -4px 2px var(--blue70);
+      color: var(--cool100);
+      border-bottom: .5rem solid var(--cool20);
+      text-shadow: 0px 2px white, 3px 2px white, -3px 2px white;
     }
   </style>
 </head>
@@ -108,51 +123,14 @@
 <main>
   <label for="load"></label>
   <button id="load"><i class="fas fa-file-upload"></i>Import File</button>
-  <!--
   <label for="text"></label>
   <button id="text"><i class="fas fa-file-code"></i>Code Editor</button>
   <label for="shop"></label>
   <button id="shop"><i class="fas fa-store-alt"></i>Pop-up Shop</button>
-  -->
 </main>
 <script>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js');
-}
-const load = document.getElementById("load");
-  load.addEventListener("click", ()=>{
-    let file = document.createElement("input");
-    file.setAttribute("type", "file");
-    file.setAttribute("accept", ".txt");
-    file.style.display = 'none';
-    document.body.appendChild(file);
-    file.addEventListener('change', getFile);
-    file.click();
-    document.body.removeChild(file);
-});
-
-function getFile(event) {
-  const input = event.target
-  if ('files' in input && input.files.length > 0) {
-    placeFileContent(
-      document.getElementById('script'),
-      input.files[0])
-  }
-}
-
-function placeFileContent(target, file) {
-  readFileContent(file).then(content => {
-    target.textContent = content
-  }).catch(error => console.log(error))
-}
-
-function readFileContent(file) {
-  const reader = new FileReader()
-  return new Promise((resolve, reject) => {
-    reader.onload = event => resolve(event.target.result)
-    reader.onerror = error => reject(error)
-    reader.readAsText(file)
-  })
 }
 </script>
 <script id="script"></script>
