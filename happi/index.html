@@ -83,6 +83,16 @@
 <label for="soul"><textarea id="soul"></textarea></label>
 
 <script>
+  let script = document.getElementById('script');
+  let soul = document.getElementById('soul');
+  soul.addEventListener('keyup', ()=>{
+    document.getElementById("script").remove();
+    script = document.createElement("script");
+    document.body.appendChild(script);
+    script.id = "script"
+    script.textContent = soul.value;
+  });
+
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');
   }

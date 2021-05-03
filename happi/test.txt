@@ -1,2 +1,2 @@
-let intro = "hello world";
+intro = "hello world";
 alert(intro);
