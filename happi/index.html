@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Happi</title>
+  <title>UploadJS</title>
   <meta name="description" content="Javascript Progressive Web App Portal">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,75 +24,63 @@
       background: black;
       color: white;
     }
-    #logo{
-      display: inline-block;
-      line-height: 4rem;
-      font-size: 4rem;
-      font-weight: 600;
-      margin: 2rem;
-    }
     label[for="file"]{
+      width: 10rem;
+      height: 5rem;
+      display: block;
       position: relative;
-      display: inline-block;
-      width: 12rem;
-      height: 2.5rem;
-      cursor: pointer;
+      overflow: hidden;
     }
-    label[for="file"] span, label[for="file"] #file{
+    label[for="file"] span{
+      display: block;
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    label[for="file"] span{
-      z-index: 2;
-      line-height: 1;
-      font-size: 1.8rem;
-      font-weight: 500;
-      text-align: center;
-      color: white;
-      pointer-events: none;
-      border-radius: .4rem;
-      border-bottom: .2rem solid white;
-      white-space: nowrap;
-    }
-    label[for="file"] #file{
       z-index: 3;
-      opacity: 0;
+      color: var(--cool100);
+      background: var(--cool10);
+      border: 1px solid var(--cool50);
+      border-radius: .5rem;
+      padding: .25rem 1rem .25rem 1rem;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 1.25rem;
+    }
+    label[for="file"] span:hover{
+      background: var(--cool40);
       cursor: pointer;
     }
-    #soul{
+    #file{
+      width: 9rem;
+      height: 3rem;
       display: block;
-      width: 100vw;
-      height: 100vh;
-      background: transparent;
       position: fixed;
-      top: 0;
-      left: 0;
-      padding-top: 8rem;
-      padding-left: 2rem;
+      left: 1rem;
+      top: 1rem;
+      opacity: 0;
+      z-index: 2;
+    }
+    #soul{
+      width: 100vw;
+      height: calc(100vh - 4rem);
+      position: relative;
       resize: none;
-      white-space: pre;
-      overflow: auto;
+      padding: 1.5rem;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      background: transparent;
       color: white;
       border: 0;
       outline: 0;
-      font-family: "IBM Plex Mono";
-      font-weight: 500;
     }
   </style>
-
 </head>
 
 <body>
-  <h1 id="logo">HappiJS</h1>
-  <label for="file">
-    <span>Choose a file</span>
-    <input id="file" type="file" name="file" />
-  </label>
-  <label for="soul"><textarea id="soul"></textarea></label>
+
+<label for="file"><span>UploadJS</span></label>
+<input id="file" type="file" />
+<label for="soul"><textarea id="soul"></textarea></label>
 
 <script>
   if ('serviceWorker' in navigator) {
@@ -111,7 +99,7 @@
     }
     setTimeout(() => {
         document.getElementById('script').textContent = document.getElementById('soul').value;
-    }, 500);
+    }, 750);
   }
 
   function placeFileContent(target, file) {
