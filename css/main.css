@@ -172,7 +172,6 @@ form{
   justify-content: center;
   margin: 4rem 0 4rem 0;
   position: relative;
-  display: none;
 }
 form label{
   display: block;
