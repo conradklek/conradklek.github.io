@@ -151,6 +151,9 @@ p{
   margin: 1.5rem 0 1.5rem 0;
   font-weight: 500;
 }
+main p{
+  font-size: 1.6rem;
+}
 table{
   font-size: 1.4rem;
   line-height: 3rem;
@@ -386,4 +389,33 @@ body.side #side{
   #wrap{
     width: 100%;
   }
+}
+
+#view{
+  border: 2px solid white;
+  border-radius: 0;
+  overflow: hidden;
+}
+#view.min{
+  min-height: 4rem;
+}
+#view .wb-header{
+  border-bottom: 2px solid white;
+}
+#view .wb-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: .32px;
+  line-height: 3.75rem;
+}
+#view .wb-body{
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#view .wb-body img{
+  width: 100%;
+  height: auto;
+  display: block;
 }

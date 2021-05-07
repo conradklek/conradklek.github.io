@@ -63,3 +63,20 @@ window.addEventListener("scroll", function(){
     }
   })
 });
+let view = new WinBox({
+  id: "view",
+  root: document.body,
+  title: "Gallery",
+  background: "#000",
+  width: 300,
+  height: 240,
+  x: "center",
+  y: "center",
+  max: false,
+  top: 0,
+  right: 0,
+  bottom: 100,
+  left: 0,
+  html: "<img src='img/slides/A1.jpg' width='300' height='200' />'"
+});
+view.minimize();
