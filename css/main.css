@@ -217,6 +217,7 @@ h3{
   font-size: 4rem;
   font-weight: 600;
   margin: 1.5rem 0 1.5rem 0;
+  padding-top: 2rem;
 }
 h3 small{
   font-weight: 600;
@@ -258,7 +259,7 @@ a{
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 2000;
 }
 #menu div{
   width: 100%;
@@ -279,7 +280,9 @@ body.side #menu div:last-of-type{
   transform: translateY(-9px) rotate(-135DEG);
   transition-delay: 150ms;
 }
-
+body.side{
+  overflow: hidden;
+}
 body.side main{
   transform: translateX(-40vw);
 }
@@ -362,15 +365,13 @@ body.side #side ol li{
 #fill article{
   width: 100%;
   height: auto;
-  display: flex;
-  flex-direction: column;
   display: none;
+  position: relative;
 }
 #fill article div{
   width: 100%;
   height: auto;
-  display: flex;
-  overflow: hidden;
+  display: block;
   margin-bottom: 1rem;
 }
 #fill article div img{
@@ -380,28 +381,28 @@ body.side #side ol li{
   position: relative;
 }
 #fill.p2 #p2{
-  display: flex;
+  display: block;
 }
 #fill.p3 #p3{
-  display: flex;
+  display: block;
 }
 #fill.p4 #p4{
-  display: flex;
+  display: block;
 }
 #fill.p5 #p5{
-  display: flex;
+  display: block;
 }
 #fill.p6 #p6{
-  display: flex;
+  display: block;
 }
 #fill.p7 #p7{
-  display: flex;
+  display: block;
 }
 #fill.p8 #p8{
-  display: flex;
+  display: block;
 }
 #fill.p9 #p9{
-  display: flex;
+  display: block;
 }
 @media only screen and (max-width: 1024px) {
   #wrap{
