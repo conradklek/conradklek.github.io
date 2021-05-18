@@ -1,11 +1,11 @@
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js');
 }
-let menu = document.getElementById("menu");
-menu.addEventListener("click", ()=>{side()});
-function side(){
+document.getElementById("menu").addEventListener("click", ()=>{
   document.body.classList.toggle("side");
-}
+  document.querySelector("#fill").classList = "hide";
+});
+
 var proxy = {
   skew: 0
 },
@@ -39,44 +39,47 @@ gsap.set("section", {
 var isInViewport = function (elem) {
   var bounding = elem.getBoundingClientRect();
   return (
-      bounding.top >= 0 &&
+      bounding.top >= 80 &&
       bounding.left >= 0 &&
       bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
       bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 };
-let objects = document.querySelectorAll("*");
-objects.forEach(object =>{
-  if (isInViewport(object)){
-    object.classList.add("isVisible")
-  } else {
-    object.classList.remove("isVisible")
-  }
-});
-window.addEventListener("scroll", function(){
-  objects = document.querySelectorAll("*");
+function isVisible(){
+  let objects = document.querySelectorAll("*");
   objects.forEach(object =>{
     if (isInViewport(object)){
       object.classList.add("isVisible")
     } else {
       object.classList.remove("isVisible")
     }
-  })
+  });
+}
+isVisible();
+window.addEventListener("scroll", function(){
+  isVisible();
 });
-let view = new WinBox({
-  id: "view",
-  root: document.body,
-  title: "Gallery",
-  background: "#000",
-  width: 300,
-  height: 240,
-  x: "center",
-  y: "center",
-  max: false,
-  top: 0,
-  right: 0,
-  bottom: 100,
-  left: 0,
-  html: "<img src='img/slides/A1.jpg' width='300' height='200' />'"
+
+let projects = document.querySelectorAll(".project");
+projects.forEach(project =>{
+  project.addEventListener("click", ()=>{
+    document.body.classList.add("side");
+    if (project.classList.contains("p2")){
+      document.querySelector("#fill").classList = "p2"
+    } else if (project.classList.contains("p3")){
+      document.querySelector("#fill").classList = "p3"
+    } else if (project.classList.contains("p4")){
+      document.querySelector("#fill").classList = "p4"
+    } else if (project.classList.contains("p5")){
+      document.querySelector("#fill").classList = "p5"
+    } else if (project.classList.contains("p6")){
+      document.querySelector("#fill").classList = "p6"
+    } else if (project.classList.contains("p7")){
+      document.querySelector("#fill").classList = "p7"
+    } else if (project.classList.contains("p8")){
+      document.querySelector("#fill").classList = "p8"
+    } else if (project.classList.contains("p9")){
+      document.querySelector("#fill").classList = "p9"
+    }
+  });
 });
-view.minimize();
