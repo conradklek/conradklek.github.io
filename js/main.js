@@ -39,14 +39,14 @@ gsap.set("section", {
 var isInViewport = function (elem) {
   var bounding = elem.getBoundingClientRect();
   return (
-      bounding.top >= 80 &&
+      bounding.top >= 0 &&
       bounding.left >= 0 &&
       bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
       bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 };
 function isVisible(){
-  let objects = document.querySelectorAll("*");
+  let objects = document.querySelectorAll(".img");
   objects.forEach(object =>{
     if (isInViewport(object)){
       object.classList.add("isVisible")
@@ -81,5 +81,13 @@ projects.forEach(project =>{
     } else if (project.classList.contains("p9")){
       document.querySelector("#fill").classList = "p9"
     }
+  });
+});
+
+let links = document.querySelectorAll(".link");
+links.forEach(link =>{
+  link.addEventListener("click", ()=>{
+    document.body.classList.toggle("side");
+    document.querySelector("#fill").classList = "hide";
   });
 });
