@@ -95,7 +95,7 @@ body{
   width: 2.5rem;
   height: auto;
   position: fixed;
-  top: 3rem;
+  top: 2rem;
   right: 2rem;
   display: flex;
   flex-direction: column;
@@ -174,8 +174,8 @@ main h2:first-of-type{
   font-weight: 600;
   border-bottom: 4px solid #fff;
   position: fixed;
-  top: 2.5rem;
-  right: 7.5rem;
+  top: 1.5rem;
+  right: 6rem;
   cursor: pointer;
   z-index: 1000;
 }
@@ -186,12 +186,18 @@ resume{
   position: fixed;
   top: -100vh;
   right: 0;
-  transition: 500ms 250ms;
-  background: #333;
+  transition: 500ms 400ms;
+  background: #FFF;
   z-index: 1003;
+}
+body.read #read{
+  pointer-events: none;
 }
 body.read resume{
   top: 0;
+}
+body.read #menu div{
+  background: #000;
 }
 #wrap{
   width: 1024px;
