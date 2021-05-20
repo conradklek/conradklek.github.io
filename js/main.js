@@ -3,6 +3,7 @@ if ('serviceWorker' in navigator) {
 }
 document.getElementById("menu").addEventListener("click", ()=>{
   document.body.classList.toggle("side");
+  document.body.classList.remove("read");
   setTimeout(() => {
     document.querySelector("#fill").classList = "hide";
   }, 1000);
@@ -106,5 +107,10 @@ links.forEach(link =>{
   link.addEventListener("click", ()=>{
     document.body.classList.toggle("side");
     document.querySelector("#fill").classList = "hide";
+    document.body.classList.remove("read");
   });
+});
+document.querySelector("#read").addEventListener("click", ()=>{
+  document.body.classList.toggle("side");
+  document.body.classList.toggle("read");
 });
