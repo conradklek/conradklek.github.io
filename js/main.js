@@ -71,10 +71,10 @@ window.addEventListener("scroll", function(){
   /* load.querySelector("span").textContent = "PROGRESS: " + Math.round(output) + "%"; */
   load.querySelector("div").style.width = output + "%";
   if (output > 10){
-    document.querySelector("#down").style.opacity = "0";
+    document.querySelector("#down").style.bottom = "-10rem";
   }
   if (output < 10){
-    document.querySelector("#down").style.opacity = "1";
+    document.querySelector("#down").style.bottom = "2rem";
   }
 });
 

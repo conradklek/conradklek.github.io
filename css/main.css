@@ -89,7 +89,7 @@ body{
   -webkit-animation-iteration-count: infinite;
   animation-name: bounce;
   font-size: 8rem;
-  transition: opacity 500ms;
+  transition: bottom 500ms;
 }
 #menu{
   width: 2.5rem;
@@ -127,7 +127,7 @@ body.side #menu div:last-of-type{
   display: flex;
   flex-direction: row;
   width: 102vw;
-  height: 2.5rem;
+  height: .5rem;
   position: fixed;
   top: 0;
   left: 0;
