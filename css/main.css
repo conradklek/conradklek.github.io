@@ -232,7 +232,7 @@ body.read #menu div{
 #hero div img{
   width: 100%;
   height: auto;
-  transform: scale(.75);
+  transform: scale(.625);
 }
 #hero .slide{
   width: 100%;
