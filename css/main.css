@@ -62,7 +62,6 @@ main{
 }
 main section{
   display: block;
-  margin: 2rem 0 4rem 0;
   position: relative;
 }
 .thumb{
@@ -112,10 +111,10 @@ main section{
   transform: scale(1.375);
 }
 section .frame{
-  margin: auto;
+  margin: 2rem auto 2rem auto;
   padding: 0;
   position: relative;
-  width: 75%;
+  width: 80%;
   height: auto;
   overflow: hidden;
 }
@@ -302,7 +301,6 @@ body.side aside{
   align-items: center;
   z-index: 1000;
   overflow: hidden;
-  padding: 10rem 2rem 2rem 2rem;
   transition: 500ms;
 }
 body.side #side{
