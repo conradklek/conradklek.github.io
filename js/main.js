@@ -3,7 +3,9 @@ if ('serviceWorker' in navigator) {
 }
 document.getElementById("menu").addEventListener("click", ()=>{
   document.body.classList.toggle("side");
-  document.querySelector("#fill").classList = "hide";
+  setTimeout(() => {
+    document.querySelector("#fill").classList = "hide";
+  }, 1000);
 });
 
 var proxy = {
@@ -56,8 +58,17 @@ function isVisible(){
   });
 }
 isVisible();
+
+
+const load = document.querySelector("#load");
+
 window.addEventListener("scroll", function(){
   isVisible();
+  var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+  var docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight;
+  var output = (scrollTop / (docHeight - 1000)) * 100;
+  load.querySelector("span").textContent = "PROGRESS: " + Math.round(output) + "%";
+  load.querySelector("div").style.width = output + "%"
 });
 
 let projects = document.querySelectorAll(".project");

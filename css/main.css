@@ -1,4 +1,64 @@
 @import url("https://use.typekit.net/esk0uzl.css");
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+@-webkit-keyframes background {
+  0%, 100% {
+    background: #00e5ff;
+  }
+  25% {
+    background: #d500f9;
+  }
+  50% {
+    background: #2979ff;
+  }
+  75% {
+    background: #304ffe;
+  }
+}
+@keyframes background {
+  0%, 100% {
+    background: #00e5ff;
+  }
+  25% {
+    background: #d500f9;
+  }
+  50% {
+    background: #2979ff;
+  }
+  75% {
+    background: #304ffe;
+  }
+}
+@-webkit-keyframes slide {
+  0%, 100% {
+    top: 0;
+  }
+  50% {
+    top: -200%;
+  }
+}
+@keyframes slide {
+  0%, 100% {
+    top: 0;
+  }
+  50% {
+    top: -200%;
+  }
+}
 :root{
   font-size: 10px;
   line-height: 1;
@@ -14,31 +74,145 @@ body{
   font-style: normal;
   overflow: scroll;
 }
-#logo{
-  display: flex;
-  flex-direction: row;
+#down{
+  color: #FFF;
   position: fixed;
-  top: 1.5rem;
-  left: 1.5rem;
-  font-size: 2rem;
-  transition: 500ms;
+  bottom: 1rem;
+  right: 1rem;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: bounce;
+  font-size: 8rem;
 }
-body.side #logo{
+#menu{
+  width: 2.5rem;
+  height: auto;
+  position: fixed;
+  top: 3rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 2000;
+}
+#menu div{
+  width: 100%;
+  height: 4px;
+  background-color: var(--light);
+  transition: transform 300ms, background-color 200ms, opacity 200ms;
+  margin-bottom: 6px;
+  pointer-events: none;
+}
+body.side #menu div:first-of-type{
+  transform: translateY(10px) rotate(135DEG);
+  transition-delay: 75ms;
+}
+body.side #menu div:nth-of-type(2){
   opacity: 0;
 }
-#logo h1{
-  margin: 0;
+body.side #menu div:last-of-type{
+  transform: translateY(-10px) rotate(-135DEG);
+  transition-delay: 150ms;
+}
+#load{
+  color: #FFF;
+  display: flex;
+  flex-direction: row;
+  width: 102vw;
+  height: 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#load div{
+  width: 0;
+  height: 100%;
+  background: #FFF;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#load span{
+  font-size: 1.5rem;
   font-weight: 600;
+  white-space: nowrap;
+  line-height: 3rem;
+  padding: 0 .5rem 0 .5rem;
+  z-index: 3;
 }
 #wrap{
   width: 1024px;
   min-height: 100vh;
+  max-width: 1024px;
   margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
   transition: transform 400ms;
+  padding-bottom: 2rem;
+}
+#hero{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / .5;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+#hero div{
+  width: 25%;
+  height: auto;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+#hero div img{
+  width: 100%;
+  height: auto;
+  padding: 25%;
+}
+#hero .slide{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  -webkit-animation-duration: 60s;
+  animation-duration: 60s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: slide;
 }
 aside{
   display: block;
@@ -48,8 +222,9 @@ aside{
   overflow: scroll;
   width: calc(900px * .40);
   transition: left 500ms;
-  left: 0;
-  padding: 10rem 0 0 2rem;
+  top: 0rem;
+  left: 0rem;
+  padding: 8rem 0 0 2rem;
 }
 main{
   display: block;
@@ -58,7 +233,7 @@ main{
   width: 60%;
   height: 100%;
   transition: transform 500ms;
-  padding: 10rem 0 0 0;
+  padding: 8rem 0 0 2rem;
 }
 main section{
   display: block;
@@ -127,23 +302,23 @@ h2{
   font-weight: 600;
   margin: 0 0 2.5rem 0;
   padding: 0 0 1rem 0;
-  border-bottom: 2px solid var(--light);
+  border-bottom: 3px solid var(--light);
 }
 h2 i{
   font-size: 2.5rem;
   padding: 0 .5rem 0 1rem;
 }
 p{
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.5;
-  margin: 1.5rem 0 1.5rem 0;
+  margin: 2rem 0 2rem 0;
   font-weight: 500;
 }
 main p{
   font-size: 1.6rem;
 }
 table{
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 3rem;
   margin: 2rem 0 2rem 0;
 }
@@ -175,19 +350,18 @@ form label input{
   display: block;
   width: 100%;
   height: 3rem;
-  margin: .5rem 0 0 0;
-  border-bottom: 2px solid var(--light);
+  border-bottom: 3px solid var(--light);
   font-weight: 500;
 }
 form textarea{
   display: block;
-  width: 100%;
+  width: calc(100% - .5rem);
   height: 9rem;
   padding: 2px;
+  border-bottom: 3px solid var(--light);
 }
 form button{
-  flex: 1;
-  margin: 2rem 0 2rem 0;
+  height: 5rem;
   border: 0;
   border-radius: 0;
   outline: 0;
@@ -196,9 +370,11 @@ form button{
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: .64px;
-  padding: 2rem 0 2rem 0;
   cursor: pointer;
-  border-top: 2px solid var(--light);
+  border-bottom: 3px solid var(--light);
+  border-radius: 0;
+  margin: 2rem;
+  padding: 0;
 }
 textarea, input{
   color: var(--light);
@@ -222,7 +398,6 @@ h3 small{
   font-size: 2rem;
 }
 .tags{
-  height: 2.5rem;
   display: flex;
   flex-direction: row;
   white-space: nowrap;
@@ -231,11 +406,10 @@ h3 small{
   display: block;
   border: 2px solid var(--light);
   border-bottom: 3px solid var(--light);
-  padding: 0 1rem 0 1rem;
+  padding: .5rem 1rem .5rem 1rem;
   margin: 0 .5rem 0 0;
   border-radius: 1.5rem;
-  font-size: 1.25rem;
-  line-height: 2rem;
+  font-size: 1.6rem;
   font-weight: 600;
   user-select: none;
   cursor: auto;
@@ -248,37 +422,6 @@ a{
   color: var(--light);
   font-weight: 600;
 }
-#menu{
-  width: 25px;
-  height: auto;
-  position: fixed;
-  top: 30px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 2000;
-}
-#menu div{
-  width: 100%;
-  height: 4px;
-  background-color: var(--light);
-  transition: transform 300ms, opacity 200ms;
-  margin-bottom: 5px;
-  pointer-events: none;
-}
-body.side #menu div:first-of-type{
-  transform: translateY(9px) rotate(135DEG);
-  transition-delay: 75ms;
-}
-body.side #menu div:nth-of-type(2){
-  opacity: 0;
-}
-body.side #menu div:last-of-type{
-  transform: translateY(-9px) rotate(-135DEG);
-  transition-delay: 150ms;
-}
 body.side{
   overflow: hidden;
 }
@@ -290,18 +433,20 @@ body.side aside{
 }
 
 #side{
-  width: 45vw;
+  width: 100vw;
   height: auto;
   min-height: 100vh;
   position: fixed;
   top: 0;
-  right: -45vw;
+  right: -100vw;
   transition: 400ms;
   display: flex;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
   overflow: hidden;
-  transition: 500ms;
+  transition: 1000ms;
+  background: #000;
 }
 body.side #side{
   right: 0;
@@ -311,6 +456,9 @@ body.side #side{
   list-style: none;
   display: block;
   position: relative;
+  margin: 0;
+  padding: 0;
+  counter-reset: line;
 }
 #side ol li{
   transform: translateX(15rem);
@@ -320,6 +468,14 @@ body.side #side{
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
+}
+#side ol li::before{
+  counter-increment: line;
+  content: "0"counter(line)".";
+  margin: 0 2rem 0 2rem;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 #side ol li:nth-of-type(1){transition-delay: 200ms;}
 #side ol li:nth-of-type(2){transition-delay: 250ms;}
@@ -365,6 +521,8 @@ body.side #side ol li{
   height: auto;
   display: none;
   position: relative;
+  max-width: 60rem;
+  margin: auto;
 }
 #fill article div{
   width: 100%;
@@ -421,10 +579,6 @@ body.side #side ol li{
 @media only screen and (max-width: 768px) {
   #wrap{
     width: 600px;
-  }
-  #side{
-    width: 100vw;
-    right: -100vw;
   }
   body.side #wrap{
     transform: translateX(-100vw);
