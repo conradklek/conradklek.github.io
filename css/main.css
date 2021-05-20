@@ -127,7 +127,7 @@ body.side #menu div:last-of-type{
   display: flex;
   flex-direction: row;
   width: 102vw;
-  height: 3rem;
+  height: 2.5rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -155,15 +155,29 @@ body.side #menu div:last-of-type{
   overflow: hidden;
 }
 #load span{
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
   white-space: nowrap;
-  line-height: 3rem;
-  padding: 0 .5rem 0 .5rem;
+  line-height: 2.375rem;
+  padding: 0 2rem 0 0;
   z-index: 3;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 main h2:first-of-type{
   margin-bottom: 0;
+}
+#read{
+  height: 2.875rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-bottom: 4px solid #fff;
+  position: fixed;
+  top: 2.5rem;
+  right: 7.5rem;
+  cursor: pointer;
+  z-index: 1000;
 }
 #wrap{
   width: 1024px;
@@ -186,7 +200,6 @@ main h2:first-of-type{
   flex-direction: row;
   flex-wrap: wrap;
   overflow: hidden;
-  margin-bottom: 2rem;
 }
 #hero div{
   width: 25%;
@@ -445,28 +458,25 @@ body.side aside{
   top: 0;
   right: -100vw;
   transition: 400ms;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 1000;
   overflow: hidden;
-  transition: 1000ms;
+  transition: 750ms;
   background: #000;
 }
 body.side #side{
   right: 0;
-  transition: 800ms 100ms;
+  transition: 750ms 100ms;
 }
 #side ol{
   list-style: none;
   display: block;
   position: relative;
   margin: 0;
-  padding: 0;
+  padding: 2rem;
   counter-reset: line;
 }
 #side ol li{
-  transform: translateX(15rem);
+  transform: translateX(30rem);
   transition: 1000ms;
   line-height: 1.5;
   font-size: 2.5rem;
