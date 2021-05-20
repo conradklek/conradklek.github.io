@@ -89,6 +89,7 @@ body{
   -webkit-animation-iteration-count: infinite;
   animation-name: bounce;
   font-size: 8rem;
+  transition: opacity 500ms;
 }
 #menu{
   width: 2.5rem;
@@ -161,6 +162,9 @@ body.side #menu div:last-of-type{
   padding: 0 .5rem 0 .5rem;
   z-index: 3;
 }
+main h2:first-of-type{
+  margin-bottom: 0;
+}
 #wrap{
   width: 1024px;
   min-height: 100vh;
@@ -182,7 +186,7 @@ body.side #menu div:last-of-type{
   flex-direction: row;
   flex-wrap: wrap;
   overflow: hidden;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 #hero div{
   width: 25%;
@@ -195,7 +199,7 @@ body.side #menu div:last-of-type{
 #hero div img{
   width: 100%;
   height: auto;
-  padding: 25%;
+  transform: scale(.75);
 }
 #hero .slide{
   width: 100%;
@@ -299,6 +303,7 @@ section .frame{
 }
 h2{
   font-size: 2.5rem;
+  line-height: 3rem;
   font-weight: 600;
   margin: 0 0 2.5rem 0;
   padding: 0 0 1rem 0;

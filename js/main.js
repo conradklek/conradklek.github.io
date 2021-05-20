@@ -68,7 +68,13 @@ window.addEventListener("scroll", function(){
   var docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight;
   var output = (scrollTop / (docHeight - 1000)) * 100;
   load.querySelector("span").textContent = "PROGRESS: " + Math.round(output) + "%";
-  load.querySelector("div").style.width = output + "%"
+  load.querySelector("div").style.width = output + "%";
+  if (output > 10){
+    document.querySelector("#down").style.opacity = "0";
+  }
+  if (output < 10){
+    document.querySelector("#down").style.opacity = "1";
+  }
 });
 
 let projects = document.querySelectorAll(".project");
