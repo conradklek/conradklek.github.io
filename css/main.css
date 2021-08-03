@@ -532,9 +532,6 @@ body.side #side ol li{
 #side ol li a{
   text-decoration: none;
 }
-#side ol li:hover a{
-  opacity: .125;
-}
 
 #fill{
   width: 100%;
