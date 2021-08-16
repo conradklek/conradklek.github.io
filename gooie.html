@@ -1,0 +1,634 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Graphic Object Oriented Interface Enviornment">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>GooieJS</title>
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <meta name="theme-color" content="#fafafa">
+  <!-- Replace with your own CSS framework -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+  <style>
+    .c-red100{ color:  #2d0709; }.c-red90{ color:  #520408; }.c-red80{ color:  #750e13; }.c-red70{ color:  #a2191f; }.c-red60{ color:  #da1e28; }.c-red50{ color:  #fa4d56; }.c-red40{ color:  #ff8389; }.c-red30{ color:  #ffb3b8; }.c-red20{ color:  #ffd7d9; }.c-red10{ color:  #fff1f1; }.c-magenta100{ color:  #2a0a18; }.c-magenta90{ color:  #510224; }.c-magenta80{ color:  #740937; }.c-magenta70{ color:  #9f1853; }.c-magenta60{ color:  #d02670; }.c-magenta50{ color:  #ee5396; }.c-magenta40{ color:  #ff8eb6; }.c-magenta30{ color:  #ffafd2; }.c-magenta20{ color:  #ffd6e8; }.c-magenta10{ color:  #fff0f7; }.c-purple100{ color:  #1c0f30; }.c-purple90{ color:  #31135e; }.c-purple80{ color:  #491d8b; }.c-purple70{ color:  #6929c4; }.c-purple60{ color:  #8a3ffc; }.c-purple50{ color:  #a56eff; }.c-purple40{ color:  #be95ff; }.c-purple30{ color:  #d4bbff; }.c-purple20{ color:  #e8daff; }.c-purple10{ color:  #f6f2ff; }.c-blue100{ color:  #001141; }.c-blue90{ color:  #001d6c; }.c-blue80{ color:  #002d9c; }.c-blue70{ color:  #0042cb; }.c-blue60{ color:  #0f62fe; }.c-blue50{ color:  #4589ff; }.c-blue40{ color:  #78a9ff; }.c-blue30{ color:  #a6c8ff; }.c-blue20{ color:  #d0e2ff; }.c-blue10{ color:  #edf5ff; }.c-cyan100{ color:  #061727; }.c-cyan90{ color:  #012749; }.c-cyan80{ color:  #003a6d; }.c-cyan70{ color:  #00539a; }.c-cyan60{ color:  #0072c3; }.c-cyan50{ color:  #1192e8; }.c-cyan40{ color:  #33b1ff; }.c-cyan30{ color:  #82cfff; }.c-cyan20{ color:  #bae6ff; }.c-cyan10{ color:  #e5f6ff; }.c-teal100{ color:  #081a1c; }.c-teal90{ color:  #022b30; }.c-teal80{ color:  #004144; }.c-teal70{ color:  #005d5d; }.c-teal60{ color:  #007d79; }.c-teal50{ color:  #009d9a; }.c-teal40{ color:  #08bdba; }.c-teal30{ color:  #3ddbd9; }.c-teal20{ color:  #9ef0f0; }.c-teal10{ color:  #d9fbfb; }.c-green100{ color:  #071908; }.c-green90{ color:  #022d0d; }.c-green80{ color:  #044317; }.c-green70{ color:  #0e6027; }.c-green60{ color:  #198038; }.c-green50{ color:  #24a148; }.c-green40{ color:  #42be65; }.c-green30{ color:  #6fdc8c; }.c-green20{ color:  #a7f0ba; }.c-green10{ color:  #defbe6; }.c-cool100{ color:  #121619; }.c-cool90{ color:  #21272a; }.c-cool80{ color:  #343a3f; }.c-cool70{ color:  #4d5358; }.c-cool60{ color:  #697077; }.c-cool50{ color:  #878d96; }.c-cool40{ color:  #a2a9b0; }.c-cool30{ color:  #c1c7cd; }.c-cool20{ color:  #dde1e6; }.c-cool10{ color:  #f2f4f8; }.c-gray100{ color:  #161616; }.c-gray90{ color:  #262626; }.c-gray80{ color:  #393939; }.c-gray70{ color:  #525252; }.c-gray60{ color:  #6f6f6f; }.c-gray50{ color:  #8d8d8d; }.c-gray40{ color:  #a8a8a8; }.c-gray30{ color:  #c6c6c6; }.c-gray20{ color:  #e0e0e0; }.c-gray10{ color:  #f4f4f4; }.c-warm100{ color:  #171414; }.c-warm90{ color:  #272525; }.c-warm80{ color:  #3c3838; }.c-warm70{ color:  #565151; }.c-warm60{ color:  #726e6e; }.c-warm50{ color:  #8f8b8b; }.c-warm40{ color:  #ada8a8; }.c-warm30{ color:  #cac5c4; }.c-warm20{ color:  #e5e0df; }.c-warm10{ color:  #f7f3f2; }.c-white{color:white;}.c-black{color:black;}.c-clear{color:transparent;}
+    .u-red100{ border-color:  #2d0709; }.u-red90{ border-color:  #520408; }.u-red80{ border-color:  #750e13; }.u-red70{ border-color:  #a2191f; }.u-red60{ border-color:  #da1e28; }.u-red50{ border-color:  #fa4d56; }.u-red40{ border-color:  #ff8389; }.u-red30{ border-color:  #ffb3b8; }.u-red20{ border-color:  #ffd7d9; }.u-red10{ border-color:  #fff1f1; }.u-magenta100{ border-color:  #2a0a18; }.u-magenta90{ border-color:  #510224; }.u-magenta80{ border-color:  #740937; }.u-magenta70{ border-color:  #9f1853; }.u-magenta60{ border-color:  #d02670; }.u-magenta50{ border-color:  #ee5396; }.u-magenta40{ border-color:  #ff8eb6; }.u-magenta30{ border-color:  #ffafd2; }.u-magenta20{ border-color:  #ffd6e8; }.u-magenta10{ border-color:  #fff0f7; }.u-purple100{ border-color:  #1c0f30; }.u-purple90{ border-color:  #31135e; }.u-purple80{ border-color:  #491d8b; }.u-purple70{ border-color:  #6929c4; }.u-purple60{ border-color:  #8a3ffc; }.u-purple50{ border-color:  #a56eff; }.u-purple40{ border-color:  #be95ff; }.u-purple30{ border-color:  #d4bbff; }.u-purple20{ border-color:  #e8daff; }.u-purple10{ border-color:  #f6f2ff; }.u-blue100{ border-color:  #001141; }.u-blue90{ border-color:  #001d6c; }.u-blue80{ border-color:  #002d9c; }.u-blue70{ border-color:  #0042cb; }.u-blue60{ border-color:  #0f62fe; }.u-blue50{ border-color:  #4589ff; }.u-blue40{ border-color:  #78a9ff; }.u-blue30{ border-color:  #a6c8ff; }.u-blue20{ border-color:  #d0e2ff; }.u-blue10{ border-color:  #edf5ff; }.u-cyan100{ border-color:  #061727; }.u-cyan90{ border-color:  #012749; }.u-cyan80{ border-color:  #003a6d; }.u-cyan70{ border-color:  #00539a; }.u-cyan60{ border-color:  #0072c3; }.u-cyan50{ border-color:  #1192e8; }.u-cyan40{ border-color:  #33b1ff; }.u-cyan30{ border-color:  #82cfff; }.u-cyan20{ border-color:  #bae6ff; }.u-cyan10{ border-color:  #e5f6ff; }.u-teal100{ border-color:  #081a1c; }.u-teal90{ border-color:  #022b30; }.u-teal80{ border-color:  #004144; }.u-teal70{ border-color:  #005d5d; }.u-teal60{ border-color:  #007d79; }.u-teal50{ border-color:  #009d9a; }.u-teal40{ border-color:  #08bdba; }.u-teal30{ border-color:  #3ddbd9; }.u-teal20{ border-color:  #9ef0f0; }.u-teal10{ border-color:  #d9fbfb; }.u-green100{ border-color:  #071908; }.u-green90{ border-color:  #022d0d; }.u-green80{ border-color:  #044317; }.u-green70{ border-color:  #0e6027; }.u-green60{ border-color:  #198038; }.u-green50{ border-color:  #24a148; }.u-green40{ border-color:  #42be65; }.u-green30{ border-color:  #6fdc8c; }.u-green20{ border-color:  #a7f0ba; }.u-green10{ border-color:  #defbe6; }.u-cool100{ border-color:  #121619; }.u-cool90{ border-color:  #21272a; }.u-cool80{ border-color:  #343a3f; }.u-cool70{ border-color:  #4d5358; }.u-cool60{ border-color:  #697077; }.u-cool50{ border-color:  #878d96; }.u-cool40{ border-color:  #a2a9b0; }.u-cool30{ border-color:  #c1c7cd; }.u-cool20{ border-color:  #dde1e6; }.u-cool10{ border-color:  #f2f4f8; }.u-gray100{ border-color:  #161616; }.u-gray90{ border-color:  #262626; }.u-gray80{ border-color:  #393939; }.u-gray70{ border-color:  #525252; }.u-gray60{ border-color:  #6f6f6f; }.u-gray50{ border-color:  #8d8d8d; }.u-gray40{ border-color:  #a8a8a8; }.u-gray30{ border-color:  #c6c6c6; }.u-gray20{ border-color:  #e0e0e0; }.u-gray10{ border-color:  #f4f4f4; }.u-warm100{ border-color:  #171414; }.u-warm90{ border-color:  #272525; }.u-warm80{ border-color:  #3c3838; }.u-warm70{ border-color:  #565151; }.u-warm60{ border-color:  #726e6e; }.u-warm50{ border-color:  #8f8b8b; }.u-warm40{ border-color:  #ada8a8; }.u-warm30{ border-color:  #cac5c4; }.u-warm20{ border-color:  #e5e0df; }.u-warm10{ border-color:  #f7f3f2; }.u-white{border-color:white;}.u-black{border-color:black;}.u-clear{border-color:transparent;}
+    .b-red100{ background:  #2d0709; }.b-red90{ background:  #520408; }.b-red80{ background:  #750e13; }.b-red70{ background:  #a2191f; }.b-red60{ background:  #da1e28; }.b-red50{ background:  #fa4d56; }.b-red40{ background:  #ff8389; }.b-red30{ background:  #ffb3b8; }.b-red20{ background:  #ffd7d9; }.b-red10{ background:  #fff1f1; }.b-magenta100{ background:  #2a0a18; }.b-magenta90{ background:  #510224; }.b-magenta80{ background:  #740937; }.b-magenta70{ background:  #9f1853; }.b-magenta60{ background:  #d02670; }.b-magenta50{ background:  #ee5396; }.b-magenta40{ background:  #ff8eb6; }.b-magenta30{ background:  #ffafd2; }.b-magenta20{ background:  #ffd6e8; }.b-magenta10{ background:  #fff0f7; }.b-purple100{ background:  #1c0f30; }.b-purple90{ background:  #31135e; }.b-purple80{ background:  #491d8b; }.b-purple70{ background:  #6929c4; }.b-purple60{ background:  #8a3ffc; }.b-purple50{ background:  #a56eff; }.b-purple40{ background:  #be95ff; }.b-purple30{ background:  #d4bbff; }.b-purple20{ background:  #e8daff; }.b-purple10{ background:  #f6f2ff; }.b-blue100{ background:  #001141; }.b-blue90{ background:  #001d6c; }.b-blue80{ background:  #002d9c; }.b-blue70{ background:  #0042cb; }.b-blue60{ background:  #0f62fe; }.b-blue50{ background:  #4589ff; }.b-blue40{ background:  #78a9ff; }.b-blue30{ background:  #a6c8ff; }.b-blue20{ background:  #d0e2ff; }.b-blue10{ background:  #edf5ff; }.b-cyan100{ background:  #061727; }.b-cyan90{ background:  #012749; }.b-cyan80{ background:  #003a6d; }.b-cyan70{ background:  #00539a; }.b-cyan60{ background:  #0072c3; }.b-cyan50{ background:  #1192e8; }.b-cyan40{ background:  #33b1ff; }.b-cyan30{ background:  #82cfff; }.b-cyan20{ background:  #bae6ff; }.b-cyan10{ background:  #e5f6ff; }.b-teal100{ background:  #081a1c; }.b-teal90{ background:  #022b30; }.b-teal80{ background:  #004144; }.b-teal70{ background:  #005d5d; }.b-teal60{ background:  #007d79; }.b-teal50{ background:  #009d9a; }.b-teal40{ background:  #08bdba; }.b-teal30{ background:  #3ddbd9; }.b-teal20{ background:  #9ef0f0; }.b-teal10{ background:  #d9fbfb; }.b-green100{ background:  #071908; }.b-green90{ background:  #022d0d; }.b-green80{ background:  #044317; }.b-green70{ background:  #0e6027; }.b-green60{ background:  #198038; }.b-green50{ background:  #24a148; }.b-green40{ background:  #42be65; }.b-green30{ background:  #6fdc8c; }.b-green20{ background:  #a7f0ba; }.b-green10{ background:  #defbe6; }.b-cool100{ background:  #121619; }.b-cool90{ background:  #21272a; }.b-cool80{ background:  #343a3f; }.b-cool70{ background:  #4d5358; }.b-cool60{ background:  #697077; }.b-cool50{ background:  #878d96; }.b-cool40{ background:  #a2a9b0; }.b-cool30{ background:  #c1c7cd; }.b-cool20{ background:  #dde1e6; }.b-cool10{ background:  #f2f4f8; }.b-gray100{ background:  #161616; }.b-gray90{ background:  #262626; }.b-gray80{ background:  #393939; }.b-gray70{ background:  #525252; }.b-gray60{ background:  #6f6f6f; }.b-gray50{ background:  #8d8d8d; }.b-gray40{ background:  #a8a8a8; }.b-gray30{ background:  #c6c6c6; }.b-gray20{ background:  #e0e0e0; }.b-gray10{ background:  #f4f4f4; }.b-warm100{ background:  #171414; }.b-warm90{ background:  #272525; }.b-warm80{ background:  #3c3838; }.b-warm70{ background:  #565151; }.b-warm60{ background:  #726e6e; }.b-warm50{ background:  #8f8b8b; }.b-warm40{ background:  #ada8a8; }.b-warm30{ background:  #cac5c4; }.b-warm20{ background:  #e5e0df; }.b-warm10{ background:  #f7f3f2; }.b-white{background:white;}.b-black{background:black;}.b-clear{background:transparent;}
+    :root{--red100: #2d0709;--red90: #520408;--red80: #750e13;--red70: #a2191f;--red60: #da1e28;--red50: #fa4d56;--red40: #ff8389;--red30: #ffb3b8;--red20: #ffd7d9;--red10: #fff1f1;--magenta100: #2a0a18;--magenta90: #510224;--magenta80: #740937;--magenta70: #9f1853;--magenta60: #d02670;--magenta50: #ee5396;--magenta40: #ff8eb6;--magenta30: #ffafd2;--magenta20: #ffd6e8;--magenta10: #fff0f7;--purple100: #1c0f30;--purple90: #31135e;--purple80: #491d8b;--purple70: #6929c4;--purple60: #8a3ffc;--purple50: #a56eff;--purple40: #be95ff;--purple30: #d4bbff;--purple20: #e8daff;--purple10: #f6f2ff;--blue100: #001141;--blue90: #001d6c;--blue80: #002d9c;--blue70: #0042cb;--blue60: #0f62fe;--blue50: #4589ff;--blue40: #78a9ff;--blue30: #a6c8ff;--blue20: #d0e2ff;--blue10: #edf5ff;--cyan100: #061727;--cyan90: #012749;--cyan80: #003a6d;--cyan70: #00539a;--cyan60: #0072c3;--cyan50: #1192e8;--cyan40: #33b1ff;--cyan30: #82cfff;--cyan20: #bae6ff;--cyan10: #e5f6ff;--teal100: #081a1c;--teal90: #022b30;--teal80: #004144;--teal70: #005d5d;--teal60: #007d79;--teal50: #009d9a;--teal40: #08bdba;--teal30: #3ddbd9;--teal20: #9ef0f0;--teal10: #d9fbfb;--green100: #071908;--green90: #022d0d;--green80: #044317;--green70: #0e6027;--green60: #198038;--green50: #24a148;--green40: #42be65;--green30: #6fdc8c;--green20: #a7f0ba;--green10: #defbe6;--cool100: #121619;--cool90: #21272a;--cool80: #343a3f;--cool70: #4d5358;--cool60: #697077;--cool50: #878d96;--cool40: #a2a9b0;--cool30: #c1c7cd;--cool20: #dde1e6;--cool10: #f2f4f8;--gray100: #161616;--gray90: #262626;--gray80: #393939;--gray70: #525252;--gray60: #6f6f6f;--gray50: #8d8d8d;--gray40: #a8a8a8;--gray30: #c6c6c6;--gray20: #e0e0e0;--gray10: #f4f4f4;--warm100: #171414;--warm90: #272525;--warm80: #3c3838;--warm70: #565151;--warm60: #726e6e;--warm50: #8f8b8b;--warm40: #ada8a8;--warm30: #cac5c4;--warm20: #e5e0df;--warm10: #f7f3f2; }
+</style>
+</head>
+
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true">
+<!-- start okay to delete -->
+  <textarea id="soul" class="shadow shadow-lg form-control alt-dm text-monospace hidden-lm text-white font-weight-semi-bold" spellcheck="false" autocomplete="off" autocapitalize="none">
+// This is your Soul. She speaks Javascript
+
+function jump(page){
+    let navbar = ["div.navbar-content", ["button.btn.btn-primary.active.hidden-lm~type::button~onclick::hide()~", ["i.fas.fa-ghost~aria-hidden::true~"]], ["button.btn.btn-primary.hidden-dm~onclick::side()~type::button~", ["i.fas.fa-bars~aria-hidden::true~"]], "a.navbar-brand.ml-10~href::https://github.com/GooieJS/GooieJS.github.io~target::_blank~", ["div.font-weight-semi-bold.font-size-24{Gooie.io}"], "button.btn.ml-auto.hidden-dm~onclick::dark()~type::button~", ["i.fas.fa-moon"], "button.btn.btn-danger.active.ml-auto.hidden-lm~onclick::dark()~type::button~", ["i.fas.fa-fire"]]
+    let sidebar = ["div.sidebar-menu", ["h4.sidebar-title.font-size-20{Boilerplates}", "div.sidebar-divider", "a.sidebar-link.sidebar-link-with-icon~onclick::wind('blank.html', '1024', '768')~", ["span.sidebar-icon.bg-transparent.justify-content-start.mr-0", ["i.fas.fa-desktop~aria-hidden::true~"], "span{Blank Desktop App}"], "a.sidebar-link.sidebar-link-with-icon~onclick::wind('blank.html', '375', '812')~", ["span.sidebar-icon.bg-transparent.justify-content-start.mr-0", ["i.fas.fa-mobile-alt.pl-5~aria-hidden::true~"], "span{Blank Mobile App}"],  "a.sidebar-link.sidebar-link-with-icon~href::blank.html~target::_blank~", ["span.sidebar-icon.bg-transparent.justify-content-start.mr-0", ["i.fas.fa-chalkboard~aria-hidden::true~"], "span{Tabula Rasa}"]], "h4.sidebar-title.font-size-20{Made with Gooie}", "div.sidebar-divider", "a.sidebar-link.sidebar-link-with-icon~href::#~onclick::wind('apps/calc.html', '375', '812')~", ["span.sidebar-icon.bg-transparent.justify-content-start.mr-0", ["i.fas.fa-calculator~aria-hidden::true~"], "span{Calculator}"], "a.sidebar-link.sidebar-link-with-icon~href::#~onclick::wind('apps/coco.html', '1024', '768')~", ["span.sidebar-icon.bg-transparent.justify-content-start.mr-0", ["i.fas.fa-palette~aria-hidden::true~"], "span{Design Portfolio}"], "div.d-flex.flex-center.w-full.my-20.py-10", ["button.btn.btn-round.btn-success.active.font-weight-bold.m-auto.px-5", ["i.fa.fa-store-alt~aria-hidden::true~", "span.ml-5{POP-UP SHOP COMING SOON}"]]]
+    if (page === 1){
+        tree([
+            "div.page-wrapper.with-navbar.with-sidebar.with-navbar-fixed-bottom~data-sidebar-type::full-height~", [
+                "nav.navbar", navbar,
+                "div.sidebar", sidebar,
+                "div.content-wrapper.w-md-three-quarter.w-sm-full.m-auto", [
+                    "div.content", [
+                        "h1.content-title.font-size-24{Introduction}",
+                        "p.border-top.font-size-14.pt-10{Gooie is a Meta-Development Enviornment. Your application is built from within itself, live & from your browser. These pages and all of their content were rendered instantly from a single }", ["span.code{<textarea>}", "span.font-weight-bold{ known simply as your }", "span.code.b-cool80.c-cool10{Soul }", ["i.fas.fa-ghost~aria-hidden::true~"], "span{.}"]
+                    ],
+                    "div.card.bg-very-dark-dm", [
+                        "h2.card-title.font-size-18.font-weight-semi-bold{Your Soul is Javascript.}",
+                        "p.font-size-14.border-bottom.border-top.pt-10.pb-15{Changes made to your }", ["span.code.b-cool80.c-cool10{Soul }", ["i.fas.fa-ghost~aria-hidden::true~"], "span{ are reflected instantly in your application. Your }", "span.code.b-cool80.c-cool10{Soul }", ["i.fas.fa-ghost~aria-hidden::true~"], "span{ hides when your }", "span.code{<body>}", "span{ is not in }", "span.code{dark-mode}", "span{.}"],
+                        "p.font-size-12.text-muted", ["b{Alfred Lanning}", "span{: [voiceover] }", "i{There have always been ghosts in the machine. Random segments of code, that have grouped together to form unexpected protocols. Unanticipated, these free radicals engender questions of free will, creativity, and even the nature of what we might call }", "b.font-italic{the Soul.}"]
+                    ],
+                    "div.content", [
+                        "p.font-size-12.mb-20{The Soul allows us to re-imagine the role of the User. It's your decision to hide, remove, or keep your Soul before you export your application. }", ["span.text-primary.font-italic{Should you choose to include your Soul, you provide the user with the freedom to modify variables declared in your application. }", "span{Declaring human-readable variables like font-size, line-height, or text-color can greatly improve accessability.}"]
+                    ],
+                    "div.card", [
+                        "h1.card-title.font-size-18.font-weight-semi-bold{Not another Javascript framework}",
+                        "p.font-size-14.border-top.pt-10", ["b{There are only two new functions!}", "span{ When you're done, }", "span.code{save-as}", "span{ and select }", "span.code{webpage, complete}", "span{ / }", "span.code{web-archive}", "span{ for an application that you can distribute across virtually any platform.}"],
+                        "p.font-size-14.border-top.pt-20{You can also }", ["a.hyperlink-underline~href::https://github.com/GooieJS/GooieJS.github.io~target::_blank~{Clone the Repo}", "span{ and swap }", "span.code{index.html}", "span{ with your own. Host on }", "a.hyperlink-underline~href::https://pages.github.com/~{GitHub Pages}", "span{ for an app that Users can install to their desktop and mobile }", "span.text-danger.font-italic{without the app-store hastle!}"]
+                    ],
+                    "div.content", [
+                        "p.font-size-12{Single Page Applications force the developer to deeply consider the navigational user-experience. When a user downloads your app, the }", ["span.code{site.webmanifest}", "span{ file tells the machine to open your app in full-screen mode,}", "i{ which means no more clunky browser-headers.}"],
+                        "p.font-size-12", ["span.text-success{Gooie applications are blazing fast!", "span{ Gooie believes in accessability-first and an unheard of mobile-first approach. Keep an eye on your browser's development tools, use semantically correct code, and you should have no trouble reaching those perfect Lighthouse scores. }"],
+                        "div.text-center", [
+                            "img.img-fluid.rounded~src::lighthouse.png~"
+                        ]
+                    ]
+                ],
+                "nav.navbar.navbar-fixed-bottom", ["div.btn-group.btn-group-lg~role::group~", ["button.btn.btn-square.disabled", ["i.fa.fa-angle-left~aria-hidden::true~"], "button.btn.btn-square.btn-primary~type::button~onclick::jump(1)~", ["i.fas.fa-home~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(2)~", ["i.fas.fa-tree~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(3)~", ["i.fas.fa-cloud-moon~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(4)~", ["i.fas.fa-seedling~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(2)~", ["i.fa.fa-angle-right~aria-hidden::true~"]], "div.btn-group.btn-group-lg.ml-auto~role::group~", ["button.btn.btn-square~onclick::save()~", ["i.fa.fa-save~aria-hidden::true~"], "button.btn.btn-square~onclick::print()~", ["i.fa.fa-print~aria-hidden::true~"]]]
+            ]
+        ]);
+    }
+    if (page === 2){
+        tree([
+            "div.page-wrapper.with-navbar.with-sidebar.with-navbar-fixed-bottom~data-sidebar-type::full-height~", [
+                "nav.navbar", navbar,
+                "div.sidebar", sidebar,
+                "div.content-wrapper.w-md-three-quarter.w-sm-full.m-auto", [
+                    "div.content", [
+                        "nav", [
+                            "ul.breadcrumb", [
+                                "li.breadcrumb-item", ["a~onclick::jump(1)~{Intro}"],
+                                "li.breadcrumb-item.active", ["a~onclick::jump(2)~{Functions}"],
+                            ]
+                        ],
+                        "h1.content-title.font-size-20{Grow your DOM with tree(}", ["i.fas.fa-tree.text-success~aria-hidden::true~", "span{)}"],
+                        "p.border-top.pt-10.font-size-14", ["span.code.b-green30.c-white{tree(}", ["i.fas.fa-tree~aria-hidden::true~", "span{)}"], "span{ creates the elements of your Document Object Model using nested arrays. Your app will only render one }", "span.code.b-green30.c-white{tree(}", ["i.fas.fa-tree~aria-hidden::true~", "span{)}"], "span{ at a time, but you can store your }", "span.code.b-green30.c-white{tree(}", ["i.fas.fa-tree~aria-hidden::true~", "span{)}"], "span{ inside another function and call it deterministically to simulate page-routing in a Single Page Application.}"]
+                    ],
+                    "div.card.overflow-scroll.bg-very-dark-dm", [
+                        "div.code-container.font-size-12", [
+                            "pre.m-0", ['code{tree(["h1{Hello, }", ["small{world!}"]])}', "hr.my-10", 'code{<tree><h1>Hello, <small>world!</small></h1></tree>}']
+                        ]
+                    ],
+                    "div.card.overflow-scroll.bg-very-dark-dm", [
+                        "div.code-container.font-size-12", [
+                            "pre.m-0", ['code{"tag#id.class1.class2~contenteditable::true~onclick::alert()~{text}"}', "hr.my-10", 'code{<tag id="id" class="class1 class2" contenteditable="true" onclick="alert()">text</tag>}']
+                        ]
+                    ],
+                    "div.content", [
+                        "h1.content-title.font-size-20{Decorate your tree with bark(}", ["i.fa.fa-dog.text-primary~aria-hidden::true~", "span{)}"],
+                        "p.border-top.pt-10.font-size-14", ["span.code.b-blue60.c-blue10{bark(}", ["i.fas.fa-dog.c-blue10~aria-hidden::true~", "span{)}"], "span{ uses nested arrays to modify the CSS of a }", "span.code{</style>}", "span{ element in your application's }", "span.code{</head>}", "span{. You can use }", "span.code.b-blue60.c-blue10{bark(}", ["i.fas.fa-dog.c-blue10~aria-hidden::true~", "span{)}"], "span{ to modify }", "span.code{:root}", "span{ CSS variables or create styled components of your own.}"]
+                    ],
+                    "div.card.overflow-scroll.bg-very-dark-dm", [
+                        "div.code-container.font-size-12", [
+                            "pre.m-0", ['code{bark([}', 'br', 'code{    ":root",}', 'br', 'code{        ["--navbar-height: 50px"],}', 'br', 'code{    "#soul",}', 'br', 'code{        ["background: black", "color: white"]}', 'br', 'code{]);}', "hr.my-10", 'code{:root{--navbar-height: 50px}#soul{background:black;color:white;}}']
+                        ]
+                    ],
+                ],
+                "nav.navbar.navbar-fixed-bottom", ["div.btn-group.btn-group-lg~role::group~", ["button.btn.btn-square~type::button~onclick::jump(1)~", ["i.fa.fa-angle-left~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(1)~", ["i.fas.fa-home~aria-hidden::true~"], "button.btn.btn-square.btn-primary~type::button~onclick::jump(2)~", ["i.fas.fa-tree~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(3)~", ["i.fas.fa-cloud-moon~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(4)~", ["i.fas.fa-seedling~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(3)~", ["i.fa.fa-angle-right~aria-hidden::true~"]], "div.btn-group.btn-group-lg.ml-auto~role::group~", ["button.btn.btn-square~onclick::save()~", ["i.fa.fa-save~aria-hidden::true~"], "button.btn.btn-square~onclick::print()~", ["i.fa.fa-print~aria-hidden::true~"]]]
+            ]
+        ]);
+    }
+    if (page === 3){
+        tree([
+            "div.page-wrapper.with-navbar.with-sidebar.with-navbar-fixed-bottom~data-sidebar-type::full-height~", [
+                "nav.navbar", navbar,
+                "div.sidebar", sidebar,
+                "div.content-wrapper.w-md-three-quarter.w-sm-full.m-auto", [
+                    "div.content", [
+                        "nav", [
+                            "ul.breadcrumb", [
+                                "li.breadcrumb-item", ["a~onclick::jump(1)~{Intro}"],
+                                "li.breadcrumb-item", ["a~onclick::jump(2)~{Functions}"],
+                                "li.breadcrumb-item.active", ["a{Elements}"]
+                            ]
+                        ],
+                        "h1.content-title.font-size-20{The Halfmoon Framework}",
+                        "p.border-top.pt-10.font-size-14{Gooie is prebuilt with }", ["a~href::https://www.gethalfmoon.com/~{Halfmoon}", "span{ and }", "a~href::https://fontawesome.com/~{Font Awesome Icons}", "span{. The following is a collection of components built with Halfmoon. Find }", ["kbd{⌘F}"], "span{ their code in your }", "span.code.b-cool80.c-cool10{Soul }", ["i.fas.fa-ghost~aria-hidden::true~"], "span{ to learn how each element is made.}"],
+                        "hr.my-20",
+                        "p.font-size-12", ["span.badge.badge-danger{[ disclaimer }", ["i.fas.fa-exclamation-circle.text-white~aria-hidden::true~", "span{ ]}"]],
+                        ["span.font-weight-normal{ You can include any CSS framework you'd like in your application, Gooie provides no styling of its own. You can even create your own styled components with }", ["span.code.b-blue60.c-blue10{bark(}", ["i.fas.fa-dog.c-blue10~aria-hidden::true~", "span{)}"]]],
+                    ],
+                    "hr.my-20",
+                    "div.content", [
+                        "h1.content-title.font-size-24{Breadcrumbs}",
+                        "nav.border-bottom~aria-label::breadcrumbs~", [
+                            "ul.breadcrumb.font-size-14", [
+                                "li.breadcrumb-item", ["a~href::#buttons~{Button}"],
+                                "li.breadcrumb-item", ["a~href::#tables~{Table}"],
+                                "li.breadcrumb-item", ["a~href::#forms~{Form}"],
+                                "li.breadcrumb-item", ["a~href::#badges~{Badge}"],
+                                "li.breadcrumb-item", ["a~href::#collapse~{Collapse}"],
+                            ]
+                        ],
+                        "p.font-size-14{The breadcrumb is a navigation component, which can be used to traverse your application or simulate page-routing.}"
+                    ],
+                    "div.content", [
+                        "h1#buttons.content-title.font-size-24{Buttons}",
+                        "p.font-size-14{Buttons can be used to trigger user actions.}"
+                    ],
+                    "div.card.d-flex.flex-row.flex-wrap", [
+                        "button.btn.m-5~type::button~{Default}",
+                        "button.btn.m-5.btn-primary~type::button~{Primary}",
+                        "button.btn.m-5.btn-danger~type::button~{Danger!}",
+                        "button.btn.m-5.btn-success~type::button~{Success}",
+                        "button.btn.m-5.disabled{.disabled}",
+                        "button.btn.m-5.btn-primary.disabled{.disabled}",
+                        "button.btn.m-5.active{.active}",
+                        "button.btn.m-5.btn-primary.active{.active}",
+                        "pre.w-full.text-wrap", ['code.code.d-block.my-10{button.btn~type::button~{Default}}', 'code.code.d-block.my-10{button.btn.btn-primary~type::button~{Primary}}', 'code.code.d-block.my-10{button.btn.btn-danger~type::button~{Danger!}}', 'code.code.d-block.my-10{button.btn.btn-success~type::button~{Success}}'],
+                    ],
+                    "div.content", [
+                        "h1#tables.content-title.font-size-24{Tables}",
+                        "p.font-size-14{Tables can be used to represent tabular data using rows and columns. They can be created by adding the }", ["code.code{.table}", "span{ class to the }", "code.code{table}", "span{ element.}"]
+                    ],
+                    "div.card", [
+                        "h1.card-title.font-size-20{The Three Laws of Robotics}",
+                        "table.table", [
+                            "thead", [
+                                "tr", [
+                                    "th{Law}",
+                                    "th{Description}",
+                                ]
+                            ],
+                            "tbody", [
+                                "tr", [
+                                    "th{First}",
+                                    "td.font-size-14{A robot may not injure a human being or, through inaction, allow a human being to come to harm.}",
+                                ],
+                                "tr", [
+                                    "th{Second}",
+                                    "td.font-size-14{A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.}",
+                                ],
+                                "tr", [
+                                    "th{Third}",
+                                    "td.font-size-14{A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.}",
+                                ]
+                            ]
+                        ]
+                    ],
+                    "div.content", [
+                        "h1#forms.content-title.font-size-24{Forms}",
+                        "p.font-size-14{Forms can be composed of }", ["code.code{input}", "span{, }", "code.code{select}", "span{, }", "code.code{textarea}", "span{ elements, and other specialized input elements like checkboxes and radio buttons.}"]
+                    ],
+                    "div.card", [
+                        "form.w-400.mw-full", [
+                            "div.form-group", [
+                                "label.required~for::full-name~{Full Name}",
+                                "input#full-name.form-control~for::full-name~placeholder::Full Name~"
+                            ],
+                            "div.form-group", [
+                                "label.required~for::mood~{Mood}",
+                                "div.custom-radio", [
+                                    "input#happy~type::radio~name::happy~value::happy~required::required~",
+                                    "label~for::happy~{Happy}"
+                                ],
+                                "div.custom-radio", [
+                                    "input#sad~type::radio~name::sad~value::sad~required::required~",
+                                    "label~for::sad~{Sad}"
+                                ],
+                            ],
+                            "div.form-group", [
+                                "label.required~for::specialization~{Area of Specialization}",
+                                "select#specialization.form-control~required::required~", [
+                                    "option~value:: ~selected::selected~disabled::disabled~{Select your area of expertise}",
+                                    "option~value::Front-end~{Front-end}",
+                                    "option~value::Front-end~{Back-end}",
+                                    "option~value::Front-end~{Full-stack}",
+                                ]
+                            ],
+                            "div.form-group", [
+                                "label.required~for::language~{Language}",
+                                "select#language.form-control~multiple::multiple~required::required~size::6~", [
+                                    "option~value::Javascript~{Javascript}",
+                                    "option~value::Html~{Html}",
+                                    "option~value::Css~{Css}",
+                                    "option~value::Sass~{Sass}",
+                                    "option~value::Pug~{Pug}",
+                                    "option~value::Node~{Node}",
+                                ]
+                            ],
+                            "div.form-group", [
+                                "label~for::description~{Description}",
+                                "textarea#description.form-control~placeholder::Write a short description about yourself.~"
+                            ],
+                            "div.form-group", [
+                                "label.required~for::picture~{Display picture}",
+                                "div.custom-file", [
+                                    "input#picture~type::file~required::required~",
+                                    "label~for::picture~{Choose picture}"
+                                ]
+                            ],
+                            "div.form-group", [
+                                "div.custom-switch", [
+                                    "input#remember~type::checkbox~",
+                                    "label~for::remember~{Never store my information}"
+                                ]
+                            ],
+                            "div.form-group", [
+                                "div.custom-checkbox", [
+                                    "input#agree~type::checkbox~",
+                                    "label~for::agree~{Agree to be nice to people}"
+                                ]
+                            ],
+                            "div.text-right", [
+                                "input.btn.btn-primary~type::submit~value::submit~"
+                            ]
+                        ]
+                    ],
+                    "div.content", [
+                        "h1#badges.content-title.font-size-24{Badges}",
+                        "p.font-size-14{Badges can be used for labeling components.}"
+                    ],
+                    "div.card", [
+                        "div", [
+                            "span.mr-5.badge.badge-primary{Primary}",
+                            "span.mr-5.badge.badge-success{Success}",
+                            "span.mr-5.badge.badge-secondary{Secondary}",
+                            "span.mr-5.badge.badge-danger{Danger}",
+
+                        ],
+                        "hr.my-20",
+                        "code.code.d-block.my-10{span.badge.badge-primary{Primary}}",
+                        "hr.my-20",
+                        "div", [
+                            "span.mr-5.badge.badge-pill.badge-primary{Primary}",
+                            "span.mr-5.badge.badge-pill.badge-success{Success}",
+                            "span.mr-5.badge.badge-pill.badge-secondary{Secondary}",
+                            "span.mr-5.badge.badge-pill.badge-danger{Danger}",
+                        ],
+                        "hr.my-20",
+                        "code.code.d-block.my-10{span.badge.badge-pill.badge-danger{Danger}}",
+                    ],
+                    "div.content", [
+                        "h1#collapse.content-title.font-size-24{Collapse}",
+                        "p.font-size-14{Collapse panels can be used to create content areas that can be opened and closed..}"
+                    ],
+                    "div.card", [
+                        "div.collapse-group", [
+                            "details.collapse-panel~open::true~", [
+                                "summary.collapse-header", [
+                                    "strong{Question. What kind of bear is best?}", "br", "span.text-muted{ - Jim Halpert}"
+                                ],
+                                "div.collapse-content{False. Black bear.}", ["span.text-muted{ - Jim Halpert}"]
+                            ],
+                            "details.collapse-panel", [
+                                "summary.collapse-header", [
+                                    "strong{That's debatable. There are basically two schools of thought--}", ["span.text-muted.font-weight-normal{ Dwight Schrute}"]
+                                ],
+                                "div.collapse-content{Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.}", ["span.text-muted{ - Jim Halpert}"]
+                            ]
+                        ]
+                    ],
+                    "div.content", [
+                        "p.font-size-12{Make sure to visit }", ["a.hyperlink-underline~href::https://www.gethalfmoon.com/~{The Halfmoon Documentation}", "span{ for a complete reference of components & utilities. Halfmoon includes }", "a.hyperlink-underline~href::https://github.com/halfmoonui/halfmoon/blob/master/css/halfmoon-variables.css~{well over a thousand variables}", "span{ so you can style your application in a logical & consistent way.}"]
+                    ]
+                ],
+                "nav.navbar.navbar-fixed-bottom", ["div.btn-group.btn-group-lg~role::group~", ["button.btn.btn-square~type::button~onclick::jump(2)~", ["i.fa.fa-angle-left~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(1)~", ["i.fas.fa-home~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(2)~", ["i.fas.fa-tree~aria-hidden::true~"], "button.btn.btn-square.btn-primary~type::button~onclick::jump(3)~", ["i.fas.fa-cloud-moon~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(4)~", ["i.fas.fa-seedling~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(4)~", ["i.fa.fa-angle-right~aria-hidden::true~"]], "div.btn-group.btn-group-lg.ml-auto~role::group~", ["button.btn.btn-square~onclick::save()~", ["i.fa.fa-save~aria-hidden::true~"], "button.btn.btn-square~onclick::print()~", ["i.fa.fa-print~aria-hidden::true~"]]]
+            ]
+        ]);
+    }
+    if (page === 4){
+        let colorLib = ["blue", "cyan", "red", "magenta", "purple", "teal", "green", "cool", "gray", "warm"];
+        let swatches = [];
+        for (let colors of colorLib){
+            for (let i = 1; i < 11; i++) {
+                swatches.push("div.font-weight-semi-bold.py-20.w-half.text-center.b-" + colors + (i * 10) + "{--" + colors + (i * 10) + "}");
+            }
+        }
+
+        tree([
+            "div.page-wrapper.with-navbar.with-sidebar.with-navbar-fixed-bottom~data-sidebar-type::full-height~", [
+                "nav.navbar", navbar,
+                "div.sidebar", sidebar,
+                "div.content-wrapper.w-md-three-quarter.w-sm-full.m-auto", [
+                    "div.content", [
+                        "nav", [
+                            "ul.breadcrumb", [
+                                "li.breadcrumb-item", ["a~onclick::jump(1)~{Intro}"],
+                                "li.breadcrumb-item", ["a~onclick::jump(2)~{Functions}"],
+                                "li.breadcrumb-item", ["a~onclick::jump(3)~{Elements}"],
+                                "li.breadcrumb-item.active", ["a{Helpers}"],
+                            ]
+                        ],
+                        "h1.content-title.font-size-24{Utilities}",
+                        "p.font-size-14{If you hate CSS, make the most of Halmoon utility classes inside your }", ["span.code.b-green30.c-white{tree(}", ["i.fas.fa-tree~aria-hidden::true~", "span{)}"]],
+                        "div.d-flex.flex-row.flex-wrap.border-bottom.py-10", [
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/display-utilities/~target::_blank~{Display}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/flex-utilities/~target::_blank~{Flex}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/position-utilities/~target::_blank~{Position}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/sizing-utilities/~target::_blank~{Size}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/spacing-utilities/~target::_blank~{Space}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/text-utilities/~target::_blank~{Text}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/border-utilities/~target::_blank~{Border}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/box-shadow-utilities/~target::_blank~{Shadow}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/color-utilities/~target::_blank~{Color}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/float-utilities/~target::_blank~{Float}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/overflow-utilities/~target::_blank~{Overflow}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/pointer-events-utilities/~target::_blank~{Pointer}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/screen-reader-utilities/~target::_blank~{Screen Readers}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/vertical-align-utilities/~target::_blank~{Vertical Align}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/visibility-utilities/~target::_blank~{Visibility}"],
+                            "div.badge.b-blue10.u-blue30.m-5", ["a~href::https://www.gethalfmoon.com/docs/z-index-utilities/~target::_blank~{Z-index}"],
+                        ]
+                    ],
+                    "div.content", [
+                        "h1.content-title.font-size-24{Swatches}",
+                        "p.font-size-14{Gooie includes }", ["a.hyperlink-underline~href::https://www.ibm.com/design/language/~{The IBM Color Library}", "span{ as }", "span.code{.classes}", "span{ for your }", ["span.code.b-green30.c-white{tree(}", ["i.fas.fa-tree~aria-hidden::true~", "span{)}"]], "span{ & }", "span.code{:root}", "span{ CSS variables for use with }", "span.code.b-blue60.c-blue10{bark(}", ["i.fas.fa-dog.c-blue10~aria-hidden::true~", "span{)}"]],
+                        "ul.font-size-12", [
+                            "li{Change text color: }", ["span.code{.c-color}"],
+                            "li{Change border color: }", ["span.code{.u-color}"],
+                            "li{Change background color: }", ["span.code{.b-color}"],
+                            "li{Use as CSS variables: }", ["span.code{var(--color)}"],
+                        ],
+                    ],
+                    "div.d-flex.flex-row.flex-wrap.font-size-12", swatches
+                ],
+                "nav.navbar.navbar-fixed-bottom", ["div.btn-group.btn-group-lg~role::group~", ["button.btn.btn-square~type::button~onclick::jump(3)~", ["i.fa.fa-angle-left~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(1)~", ["i.fas.fa-home~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(2)~", ["i.fas.fa-tree~aria-hidden::true~"], "button.btn.btn-square~type::button~onclick::jump(3)~", ["i.fas.fa-cloud-moon~aria-hidden::true~"], "button.btn.btn-square.btn-primary~type::button~onclick::jump(4)~", ["i.fas.fa-seedling~aria-hidden::true~"], "button.btn.btn-square.disabled~type::button~", ["i.fa.fa-angle-right~aria-hidden::true~"]], "div.btn-group.btn-group-lg.ml-auto~role::group~", ["button.btn.btn-square~onclick::save()~", ["i.fa.fa-save~aria-hidden::true~"], "button.btn.btn-square~onclick::print()~", ["i.fa.fa-print~aria-hidden::true~"]]]
+            ]
+        ]);
+    }
+    document.querySelector(".page-wrapper").setAttribute("data-sidebar-hidden", "hidden")
+}
+jump(1);
+
+bark([
+    ":root", [
+        "--navbar-height: 60px",
+    ],
+    "#soul", [
+        "width: 100vw",
+        "height: 50vh",
+        "position: fixed",
+        "top: calc(50vh - (var(--navbar-height) * 2))",
+        "left: 0",
+        "resize: none",
+        "white-space: nowrap",
+        "z-index: 9001",
+        "transition: 400ms",
+        "white-space: pre",
+        "backdrop-filter: blur(5px) brightness(50%)",
+        "-webkit-backdrop-filter: blur(5px) brightness(50%)",
+        "font-size: 1.2rem"
+    ],
+    "#soul.hide", [
+        "left: -100vw",
+        "opacity: 0"
+    ],
+    "div.content-wrapper", [
+        "padding-bottom: var(--navbar-height)"
+    ],
+    "nav.navbar.navbar-fixed-bottom", [
+        "height: calc(var(--navbar-height) * 2)"
+    ],
+    "nav.navbar.navbar-fixed-bottom .btn-group", [
+        "margin-bottom: var(--navbar-height)"
+    ]
+]);
+
+function dark(){
+    halfmoon.toggleDarkMode();
+}
+function side(){
+    if (document.querySelector(".page-wrapper").hasAttribute("data-sidebar-hidden")){
+        document.querySelector(".page-wrapper").removeAttribute("data-sidebar-hidden")
+    } else {
+        document.querySelector(".page-wrapper").setAttribute("data-sidebar-hidden", "hidden")
+    }
+}
+function hide(){
+    $soul.classList.toggle("hide");
+}
+function wind(file, width, height){
+    window.open(file, "pop-up", "resizable,scrollbars,status,menubar,width=" + width +",height=" + height + "");
+}
+  </textarea>
+
+  <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+  <!-- end okay to delete-->
+
+  <!--Do not delete serviceworker-->
+  <script>
+
+  if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+  .then(function(registration) {
+    console.log('Registration successful, scope is:', registration.scope);
+  })
+  .catch(function(error) {
+    console.log('Service worker registration failed, error:', error);
+  });
+  }
+
+  </script>
+  <script>
+  let $style, $tree, $soul, $script;
+
+  $style = document.createElement("style");
+  document.head.appendChild($style);
+  $style.id = "style";
+
+  $script = document.createElement("script");
+  document.body.appendChild($script);
+  $script.id = "script";
+
+  $tree = document.createElement("tree");
+  document.body.prepend($tree);
+
+  $soul = document.querySelector("#soul");
+  $script.textContent = $soul.value;
+
+  $soul.addEventListener(`keydown`, (e) => {
+      let pos;
+      let keycode = e.code;
+      if (keycode === `Tab`) {
+          e.preventDefault()
+          pos = $soul.selectionStart;
+          $soul.value = $soul.value.slice(0, pos) + `    ` + $soul.value.slice(pos, )
+          $soul.setSelectionRange(pos + 4, pos + 4)
+      }
+  })
+  function soul() {
+      document.getElementById("script").remove();
+      $script = document.createElement("script");
+      document.body.appendChild($script);
+      $script.id = "script";
+      $script.textContent = $soul.value;
+  }
+  soul();
+  $soul.addEventListener("keyup", () => { soul(); });
+
+  function dom(element) {
+      element = element.trim();
+
+      let $tag = element.split("{")[0].split("~")[0].split("/")[0].split(".")[0].split("#")[0];
+      let $object = document.createElement($tag);
+
+      let $text = element.match(/{.*}/);
+      if ($text == null) { $text = ""; } else {
+          element = element.split($text).join("");
+          $text = $text[0].slice(1, -1);
+          let $innerText = document.createTextNode($text);
+          $object.append($innerText);
+      }
+
+      let $attr = element.match(/~.*~/);
+      if ($attr == null) { $attr = ""; } else {
+          element = element.split($attr).join("");
+          $attr = $attr[0].slice(1, -1).split("~");
+          for (let i = 0; i < $attr.length; i++) {
+              $attr[i] = $attr[i].split("::");
+              $object.setAttribute($attr[i][0], $attr[i][1]);
+          }
+      }
+
+      let $classes = element.match(/\..*/);
+      if ($classes == null) { $classes = ""; } else {
+          element = element.split($classes).join("");
+          $classes = $classes[0].split(".").join(" ").trim();
+          $object.setAttribute("class", $classes);
+      }
+
+      let $id = element.match(/#.*/);
+      if ($id == null) { $id = ""; } else {
+          element = element.split($id).join("");
+          $id = $id[0].slice(1, );
+          $object.setAttribute("id", $id);
+      }
+      return ($object);
+  }
+
+  function tree(life) {
+      document.querySelector("tree").remove();
+      $tree = document.createElement("tree");
+      document.body.prepend($tree);
+      for (let bugs of life) {
+          if (typeof bugs === "object") {
+              for (let soil of bugs) {
+                  if (typeof soil === "object") {
+                      for (let dirt of soil) {
+                          if (typeof dirt === "object") {
+                              for (let stem of dirt) {
+                                  if (typeof stem === "object") {
+                                      for (let leaf of stem) {
+                                          if (typeof leaf === "object") {
+                                              for (let weed of leaf) {
+                                                  if (typeof weed === "object") {
+                                                      for (let puff of weed) {
+                                                          if (typeof puff === "object") {
+                                                              for (let high of puff) {
+                                                                  if (typeof high === "object") {
+                                                                      for (let toke of high) {
+                                                                          if (typeof toke ===
+                                                                              "object") {} else {
+                                                                              $tree.lastElementChild
+                                                                                  .lastElementChild
+                                                                                  .lastElementChild
+                                                                                  .lastElementChild
+                                                                                  .lastElementChild
+                                                                                  .lastElementChild
+                                                                                  .lastElementChild
+                                                                                  .lastElementChild
+                                                                                  .appendChild(dom(toke))
+                                                                          }
+                                                                      }
+                                                                  } else {
+                                                                      $tree.lastElementChild.lastElementChild
+                                                                          .lastElementChild.lastElementChild
+                                                                          .lastElementChild.lastElementChild
+                                                                          .lastElementChild.appendChild(dom(
+                                                                              high))
+                                                                  }
+                                                              }
+                                                          } else {
+                                                              $tree.lastElementChild.lastElementChild
+                                                                  .lastElementChild.lastElementChild
+                                                                  .lastElementChild.lastElementChild
+                                                                  .appendChild(dom(puff))
+                                                          }
+                                                      }
+                                                  } else {
+                                                      $tree.lastElementChild.lastElementChild.lastElementChild
+                                                          .lastElementChild.lastElementChild.appendChild(dom(
+                                                              weed))
+                                                  }
+                                              }
+                                          } else {
+                                              $tree.lastElementChild.lastElementChild.lastElementChild
+                                                  .lastElementChild.appendChild(dom(leaf))
+                                          }
+                                      }
+                                  } else {
+                                      $tree.lastElementChild.lastElementChild.lastElementChild.appendChild(
+                                          dom(stem))
+                                  }
+                              }
+                          } else {
+                              $tree.lastElementChild.lastElementChild.appendChild(dom(dirt))
+                          }
+                      }
+                  } else {
+                      $tree.lastElementChild.appendChild(dom(soil))
+                  }
+              }
+          } else {
+              $tree.appendChild(dom(bugs));
+          }
+      }
+  }
+
+  function bark(styles) {
+      document.getElementById(`style`).remove();
+      $style = document.createElement(`style`);
+      $style.id = `style`;
+      document.head.append($style);
+
+      for (let selector of styles) {
+          if (typeof selector === `object`) {
+              for (let style of selector) {
+                  $style.textContent += style + ";";
+              }
+              $style.textContent += "}"
+          } else {
+              $style.textContent += selector + "{";
+          }
+      }
+  }
+
+  function save(){
+      var text = document.getElementById("script").textContent;
+      var filename = "soul.txt";
+      download(filename, text);
+  }
+  function download(filename, text) {
+      var element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+  }
+  </script>
+
+</body>
+
+</html>
